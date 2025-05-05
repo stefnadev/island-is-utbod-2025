@@ -1,0 +1,25 @@
+{
+  "name": "@island2025-alhlidateymi/skattur-api-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@island2025-alhlidateymi/skattur-api"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/skattur-api-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@island2025-alhlidateymi/skattur-api:build"
+        ]
+      }
+    }
+  }
+}
