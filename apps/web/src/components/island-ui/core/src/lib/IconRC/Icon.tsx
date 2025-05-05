@@ -6,6 +6,8 @@ import { Box } from '../Box/Box';
 import * as styles from './Icon.css';
 import type { IconProps, SvgProps, PlaceholderProps } from './types';
 
+export type { SvgProps };
+
 const colors = theme.color;
 
 const sizes = {
