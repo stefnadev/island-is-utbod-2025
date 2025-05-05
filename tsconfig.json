@@ -8,6 +8,24 @@
     },
     {
       "path": "./apps/web"
+    },
+    {
+      "path": "./apps/skattur-api-e2e"
+    },
+    {
+      "path": "./apps/skattur-api"
+    },
+    {
+      "path": "./apps/stafraent-island-api-e2e"
+    },
+    {
+      "path": "./apps/stafraent-island-api"
+    },
+    {
+      "path": "./apps/gateway-api-e2e"
+    },
+    {
+      "path": "./apps/gateway-api"
     }
   ]
 }

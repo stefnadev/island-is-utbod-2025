@@ -57,6 +57,21 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
+      },
+      "exclude": [
+        "apps/skattur-api-e2e/**/*",
+        "apps/stafraent-island-api-e2e/**/*",
+        "apps/gateway-api-e2e/**/*"
+      ]
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
       }
     }
   ],
