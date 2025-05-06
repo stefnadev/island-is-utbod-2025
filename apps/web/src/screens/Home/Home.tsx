@@ -1,11 +1,15 @@
 import * as styles from './Home.css';
-import { Button } from '../../components/island-ui/core/src';
+import { ProcessEntry } from '@/components/island-ui/contentful/src/';
 
 export const Home = () => {
   return (
     <div className={styles.container}>
-      <Button>Halló heimur</Button>
-      Halló heimur
+      <ProcessEntry
+        processTitle={'Framtal 2025'}
+        processLink={'/skattframtol'}
+        buttonText={'Opna'}
+        newTab={false}
+      ></ProcessEntry>
     </div>
   );
 };
