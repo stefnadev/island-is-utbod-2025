@@ -6,7 +6,12 @@
     "name": "web"
   },
   "dependencies": {
+    "@apollo/client": "^3.13.8",
+    "@nx/next": "20.8.1",
     "@rehooks/component-size": "^1.0.3",
+    "@sindresorhus/slugify": "^2.2.1",
+    "@storybook/react": "^8.6.12",
+    "@vanilla-extract/next-plugin": "^2.4.10",
     "@vanilla-extract/recipes": "^0.5.5",
     "beygla": "^1.5.2",
     "class-validator": "^0.14.2",
@@ -14,22 +19,20 @@
     "hypher": "^0.2.5",
     "kennitala": "^3.1.0",
     "libphonenumber-js": "^1.12.7",
-    "@apollo/client": "^3.13.8",
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-animate-height": "^3.2.3",
     "react-datepicker": "^8.3.0",
     "react-dom": "19.0.0",
     "react-dropzone": "^14.3.8",
+    "react-hook-form": "^7.56.2",
     "react-keyed-flatten-children": "^5.0.0",
     "react-number-format": "^5.4.4",
     "react-pdf": "^9.2.1",
     "react-select": "^5.10.1",
     "react-toastify": "^11.0.5",
     "react-top-loading-bar": "^3.0.2",
-    "react-use": "^17.6.0",
-    "@nx/next": "20.8.1",
-    "@vanilla-extract/next-plugin": "^2.4.10"
+    "react-use": "^17.6.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.5"
