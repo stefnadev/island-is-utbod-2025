@@ -8,7 +8,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const phonenumber = req.query?.phonenumber as string;
 
   if (!phonenumber || String(phonenumber).replace('-', '') !== '7728391') {
-    return res.redirect('/innskraning?invalidLogin=true');
+    return res.redirect(
+      `/innskraning?invalidLogin=true&phonenumber=${phonenumber}`,
+    );
   }
 
   const expirationString = '2d';

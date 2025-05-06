@@ -1,6 +1,6 @@
+import Head from 'next/head';
 import { Text } from '@/components/island-ui/core/src';
 import { TaxReportListResponse } from '@/grapql/graphql';
-import Head from 'next/head';
 
 interface TaxRepostListProps {
   taxReportList: TaxReportListResponse;

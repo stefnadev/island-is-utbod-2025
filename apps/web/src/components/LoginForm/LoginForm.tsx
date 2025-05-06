@@ -1,12 +1,17 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 
 import { Box, Button, Input, Text, LinkV2 } from '../island-ui/core/src/index';
 import * as styles from './LoginForm.css';
 
-export const LoginForm = () => {
-  const router = useRouter();
+interface LoginFormProps {
+  errorMessage?: string;
+  phonenumber?: string;
+}
 
+export const LoginForm = ({
+  errorMessage,
+  phonenumber: initialPhonenumber,
+}: LoginFormProps) => {
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.loginFormWrapper}>
@@ -39,11 +44,8 @@ export const LoginForm = () => {
                   backgroundColor="blue"
                   placeholder="000-0000"
                   size="sm"
-                  errorMessage={
-                    router.query?.invalidLogin
-                      ? 'Símanúmer finnst ekki'
-                      : undefined
-                  }
+                  defaultValue={initialPhonenumber}
+                  errorMessage={errorMessage}
                 />
 
                 <Button id="submit" size="small" fluid type="submit">
