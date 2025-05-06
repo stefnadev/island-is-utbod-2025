@@ -85,8 +85,10 @@ export const Tooltip: FC<React.PropsWithChildren<TooltipProps>> = ({
   return (
     <>
       {children ? (
-        <TooltipReference {...tooltip} {...children.props}>
-          {(referenceProps) => React.cloneElement(children, referenceProps)}
+        <TooltipReference {...tooltip} {...(children.props as any)}>
+          {(
+            referenceProps: (Partial<unknown> & React.Attributes) | undefined,
+          ) => React.cloneElement(children, referenceProps)}
         </TooltipReference>
       ) : (
         <TooltipReference {...tooltip} as={as} className={cn(styles.icon)}>

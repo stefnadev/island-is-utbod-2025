@@ -1,4 +1,4 @@
-import { Locale } from '@island.is/shared/types'
+import { Locale } from '../../../shared/types';
 
-export const defaultLanguage: Locale = 'is'
-export const supportedLocales: Locale[] = ['is', 'en']
+export const defaultLanguage: Locale = 'is';
+export const supportedLocales: Locale[] = ['is', 'en'];

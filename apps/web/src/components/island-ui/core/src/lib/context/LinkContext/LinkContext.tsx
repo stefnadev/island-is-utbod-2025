@@ -1,7 +1,7 @@
-import React, { createContext } from 'react'
+import React, { createContext, JSX } from 'react';
 
 export interface LinkContextInterface {
-  linkRenderer?: (href: string, children: React.ReactNode) => JSX.Element
+  linkRenderer?: (href: string, children: React.ReactNode) => JSX.Element;
 }
 
 export const LinkContext = createContext<LinkContextInterface>({
@@ -10,4 +10,4 @@ export const LinkContext = createContext<LinkContextInterface>({
       {children}
     </a>
   ),
-})
+});

@@ -92,6 +92,8 @@ export const Input = forwardRef(
       ? backgroundColor.map(mapBlue)
       : mapBlue(backgroundColor as InputBackgroundColor);
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     useLayoutEffect(() => {
       const input = inputRef.current;
 
