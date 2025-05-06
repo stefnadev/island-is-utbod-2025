@@ -1,14 +1,17 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import { Box, Button, Input, Text, LinkV2 } from '../island-ui/core/src/index';
 import * as styles from './LoginForm.css';
 
 export const LoginForm = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.loginFormWrapper}>
         <div className={styles.loginFormWidth}>
-          <div className={styles.text}>
+          <form className={styles.text} action="/api/login" method="get">
             <Box border="standard" borderRadius="large" paddingTop={8}>
               <div className={styles.logo}>Mynd hérna</div>
 
@@ -29,16 +32,21 @@ export const LoginForm = () => {
                 </Text>
 
                 <Input
-                  name={'login-phonenumber'}
+                  name="phonenumber"
                   inputMode="numeric"
                   type="tel"
                   label="Símanúmer"
                   backgroundColor="blue"
                   placeholder="000-0000"
                   size="sm"
+                  errorMessage={
+                    router.query?.invalidLogin
+                      ? 'Símanúmer finnst ekki'
+                      : undefined
+                  }
                 />
 
-                <Button id="submit" size="small" fluid>
+                <Button id="submit" size="small" fluid type="submit">
                   Auðkenna
                 </Button>
                 <Box
@@ -70,7 +78,7 @@ export const LoginForm = () => {
                 </Button>
               </Box>
             </Box>
-          </div>
+          </form>
           <Box display="flex" justifyContent="spaceBetween">
             <LinkV2 href={''} color="blue600">
               Skilmálar
