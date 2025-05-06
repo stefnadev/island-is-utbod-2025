@@ -8,6 +8,8 @@
   "dependencies": {
     "next": "~15.2.4",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "@nx/next": "20.8.1",
+    "@vanilla-extract/next-plugin": "^2.4.10"
   }
 }
