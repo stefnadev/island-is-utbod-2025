@@ -1,23 +1,44 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { RealEstateChargesDto } from './real-estate-charges';
 import { DebtCollection } from './debt';
+import { IsObject, IsString } from 'class-validator'
 
 export class DebtsDto {
-    @ApiProperty()
+     @ApiProperty({
+        format: 'uuid',
+    })
+    @IsString()
     id!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'uuid',
+    })
+    @IsString()
     taxReportId!: string;
 
-    @ApiProperty()
-    interestCharges!: RealEstateChargesDto;
+    @ApiProperty({
+        type: RealEstateChargesDto,
+        description: 'Vaxtagjöld vegna íbúðarhúsnæðis til eigin nota'
+    })
+    @IsObject()
+    realEstateCharges!: RealEstateChargesDto;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: DebtCollection,
+        description: 'Aðrar skuldir og vaxtagjöld',
+    })
+    @IsObject()
     otherDebts!: DebtCollection;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'date-time',
+    })
+    @IsString()
     createdOn!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'date-time',
+    })
+    @IsString()
     modifiedOn!: string;
 }

@@ -1,16 +1,31 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsArray, IsNumber, IsString } from 'class-validator'
 
 export class VehicleDto {
-    @ApiProperty()
+    @ApiProperty({
+        description: 'Númer',
+    })
+    @IsString()
     plateNumber!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        description: 'Kaupár',
+    })
+    @IsNumber()
     yearOfPurchase!: number;
 
-    @ApiProperty()
+    @ApiProperty({
+        description: 'Kaupverð',
+    })
+    @IsNumber()
     purchasePrice!: number;
 }
 
 export class VehicleCollection {
+    @ApiProperty({
+        type: VehicleDto,
+        isArray: true,
+    })
+    @IsArray()
     items!: VehicleDto[];
 }

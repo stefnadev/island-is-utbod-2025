@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { IsArray } from 'class-validator';
 
 export class UnitDto {
     @ApiProperty()
@@ -9,5 +10,10 @@ export class UnitDto {
 }
 
 export class UnitCollection {
+    @ApiProperty({
+        type: UnitDto, 
+        isArray: true,
+    })
+    @IsArray()
     items!: UnitDto[];
 }

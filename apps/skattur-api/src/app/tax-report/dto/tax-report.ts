@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IncomesDto } from './incomes';
-import { AssetCollection } from './assets';
-import { DebtCollection } from './debt';
+import { AssetsDto } from './assets';
+import { DebtsDto } from './debts';
+import { IsNumber, IsObject, IsString } from 'class-validator'
 
 export enum TaxReportStatus {
     DRAFT = 'Draft',
@@ -9,31 +10,56 @@ export enum TaxReportStatus {
     DELETED = 'deleted',
 }
 
-export class TaxReportBasicDto {
-    @ApiProperty()
+export class TaxReportDto {
+    @ApiProperty({
+        format: 'uuid',
+    })
+    @IsString()
     id!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'uuid',
+    })
+    @IsString()
     applicationId!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: IncomesDto
+    })
+    @IsObject()
     incomes!: IncomesDto;
 
-    @ApiProperty()
-    assets!: AssetCollection;
+    @ApiProperty({
+        type: AssetsDto
+    })
+    @IsObject()
+    assets!: AssetsDto;
+
+    @ApiProperty({
+        type: DebtsDto
+    })
+    @IsObject()
+    debts!: DebtsDto;
 
     @ApiProperty()
-    debts!: DebtCollection;
-
-    @ApiProperty()
+    @IsNumber()
     year!: number;
 
-    @ApiProperty()
+    @ApiProperty({
+        enum: ['draft','submitted','deleted']
+    })
+    @IsString()
     status!: TaxReportStatus;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'date-time',
+    })
+    @IsString()
     createdOn!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'date-time',
+    })
+    @IsString()
     modifiedOn!: string;
 }

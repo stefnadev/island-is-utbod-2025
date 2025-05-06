@@ -1,27 +1,44 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { RealEstateCollection } from './real-estate';
 import { VehicleCollection } from './vehicle';
+import { IsObject, IsString } from 'class-validator'
 
 export class AssetsDto {
-    @ApiProperty()
+    @ApiProperty({
+        format: 'uuid',
+    })
+    @IsString()
     id!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'uuid',
+    })
+    @IsString()
     taxReportId!: string;
 
-    @ApiProperty()
-    reaEstates!: RealEstateCollection;
+    @ApiProperty({
+        type: RealEstateCollection,
+        description: 'Innlendar fasteignir',
+    })
+    @IsObject()
+    realEstates!: RealEstateCollection;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: RealEstateCollection,
+        description: 'Bifreiðir',
+    })
+    @IsObject()
     vehicles!: VehicleCollection;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'date-time',
+    })
+    @IsString()
     createdOn!: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        format: 'date-time',
+    })
+    @IsString()
     modifiedOn!: string;
-}
-
-export class AssetCollection {
-    items!: AssetsDto[];
 }

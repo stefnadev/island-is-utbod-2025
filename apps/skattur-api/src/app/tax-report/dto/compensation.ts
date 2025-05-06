@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { UnitCollection } from './unit';
+import { IsArray } from 'class-validator';
 
 export class CompensationDto {
     @ApiProperty()
@@ -10,5 +11,10 @@ export class CompensationDto {
 }
 
 export class CompensationCollection {
+    @ApiProperty({
+        type: CompensationDto, 
+        isArray: true,
+    })
+    @IsArray()
     items!: CompensationDto[];
 }
