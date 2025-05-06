@@ -2,6 +2,7 @@
 
 const { composePlugins, withNx } = require('@nx/next');
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const { join } = require('node:path');
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
@@ -14,6 +15,7 @@ const nextConfig = {
     svgr: false,
   },
   output: 'standalone',
+  outputFileTracingRoot: join(__dirname, '../../'),
 };
 
 const withVanillaExtract = createVanillaExtractPlugin();

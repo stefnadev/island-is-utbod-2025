@@ -1,0 +1,10 @@
+{
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "options": {
+        "outputPath": "dist/apps/web"
+      }
+    }
+  }
+}
