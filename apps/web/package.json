@@ -6,10 +6,28 @@
     "name": "web"
   },
   "dependencies": {
+    "@nx/next": "20.8.1",
+    "@rehooks/component-size": "^1.0.3",
+    "@vanilla-extract/next-plugin": "^2.4.10",
+    "@vanilla-extract/recipes": "^0.5.5",
+    "beygla": "^1.5.2",
+    "class-validator": "^0.14.2",
+    "downshift": "^9.0.9",
+    "hypher": "^0.2.5",
+    "kennitala": "^3.1.0",
+    "libphonenumber-js": "^1.12.7",
     "next": "~15.2.4",
     "react": "19.0.0",
+    "react-animate-height": "^3.2.3",
+    "react-datepicker": "^8.3.0",
     "react-dom": "19.0.0",
-    "@nx/next": "20.8.1",
-    "@vanilla-extract/next-plugin": "^2.4.10"
+    "react-dropzone": "^14.3.8",
+    "react-keyed-flatten-children": "^5.0.0",
+    "react-number-format": "^5.4.4",
+    "react-pdf": "^9.2.1",
+    "react-select": "^5.10.1",
+    "react-toastify": "^11.0.5",
+    "react-top-loading-bar": "^3.0.2",
+    "react-use": "^17.6.0"
   }
 }
