@@ -7,11 +7,12 @@
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
+    "@nx/next": "20.8.1",
+    "@vanilla-extract/next-plugin": "^2.4.10",
+    "@vanilla-extract/recipes": "^0.5.5",
     "next": "~15.2.4",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "@nx/next": "20.8.1",
-    "@vanilla-extract/next-plugin": "^2.4.10"
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.5"
