@@ -1,3 +1,5 @@
+import Head from 'next/head';
+import { Text } from '@/components/island-ui/core/src';
 import { TaxReportListResponse } from '@/grapql/graphql';
 
 interface TaxRepostListProps {
@@ -7,7 +9,10 @@ interface TaxRepostListProps {
 export const TaxReportList = ({ taxReportList }: TaxRepostListProps) => {
   return (
     <div>
-      <h1>Skattframtöl</h1>
+      <Head>
+        <title>Skattframtöl</title>
+      </Head>
+      <Text variant="h1">Skattframtöl</Text>
       <div>
         {taxReportList.items.map((item) => {
           return (
