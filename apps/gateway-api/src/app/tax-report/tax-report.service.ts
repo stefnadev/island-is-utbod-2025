@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {
   TaxReportListItemStatus,
   TaxReportListResponse,
-} from './models/taxReport.model';
+} from './models/tax-report.model';
 
 @Injectable()
 export class TaxReportService {
