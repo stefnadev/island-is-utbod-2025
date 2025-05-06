@@ -2,19 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
 type Query {
-  getData: Recipe!
+  taxReportList: TaxReportListResponse!
 }
 
-"""recipe"""
-type Recipe {
-  creationDate: DateTime!
-  description: String
-  id: ID!
-  ingredients: [String!]!
+type TaxReportListItem {
+  status: TaxReportListItemStatus!
+  year: Int!
+}
+
+enum TaxReportListItemStatus {
+  DRAFT
+  REVIEWED
+  SUBMITTED
+}
+
+type TaxReportListResponse {
+  items: [TaxReportListItem!]!
 }

@@ -1,0 +1,8 @@
+query GetTaxReportList {
+  taxReportList {
+    items {
+      year
+      status
+    }
+  }
+}

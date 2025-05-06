@@ -1,5 +1,0 @@
-query GetData {
-  getData {
-    creationDate
-  }
-}
