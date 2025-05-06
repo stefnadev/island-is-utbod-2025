@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  taxReportList: TaxReportListResponse!
+}
+
+type TaxReportListItem {
+  status: TaxReportListItemStatus!
+  year: Int!
+}
+
+enum TaxReportListItemStatus {
+  DRAFT
+  REVIEWED
+  SUBMITTED
+}
+
+type TaxReportListResponse {
+  items: [TaxReportListItem!]!
+}
