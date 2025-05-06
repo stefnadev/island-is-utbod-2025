@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { TaxReportModule } from './taxReport/taxReport.module';
+import { TaxReportModule } from './tax-report/tax-report.module';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const playground = !isProduction;

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { TaxReportResolver } from './taxReport.resolver';
-import { TaxReportService } from './taxReport.service';
+import { TaxReportResolver } from './tax-report.resolver';
+import { TaxReportService } from './tax-report.service';
 
 @Module({
   providers: [TaxReportResolver, TaxReportService],
