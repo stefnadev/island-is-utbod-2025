@@ -6,8 +6,7 @@ export function createApolloClient() {
   return new ApolloClient({
     ssrMode: true,
     link: new HttpLink({
-      uri:
-        process.env.GATEWAY_API_GRAPHQL_URL || 'http://localhost:3000/graphql',
+      uri: process.env.GATEWAY_API_GRAPHQL_URL,
       fetch,
     }),
     cache: new InMemoryCache(),
