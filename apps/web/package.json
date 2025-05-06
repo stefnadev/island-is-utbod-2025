@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
+    "@vanilla-extract/recipes": "^0.5.5",
     "@graphql-codegen/client-preset": "4.8.0",
     "@nx/next": "20.8.1",
     "@vanilla-extract/next-plugin": "^2.4.10",

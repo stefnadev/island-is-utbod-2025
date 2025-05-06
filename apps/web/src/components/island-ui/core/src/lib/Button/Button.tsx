@@ -114,6 +114,8 @@ export const Button = forwardRef<
   },
 );
 
+Button.displayName = 'Button';
+
 type ButtonIconProps = {
   icon: IconProps['icon'];
   type: IconProps['type'];
