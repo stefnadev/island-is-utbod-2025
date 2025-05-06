@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { TaxReportsBasicResponse, TaxReportStatus } from './dto/tax-report-basic';
+import { TaxReportsBasicCollection } from './dto/tax-report-basic';
+import { TaxReportStatus } from './dto/tax-report';
 
 @Injectable()
 export class TaxReportService {
-  GetTaxReports(): TaxReportsBasicResponse {
+  GetTaxReports(): TaxReportsBasicCollection {
     return {
       items: [
         {

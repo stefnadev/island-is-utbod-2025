@@ -1,10 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-
-export enum TaxReportStatus {
-    DRAFT = 'Draft',
-    SUBMITTED = 'Submitted',
-    DELETED = 'deleted',
-  }
+import { TaxReportStatus } from './tax-report';
 
 export class TaxReportBasicDto {
     @ApiProperty()
@@ -20,6 +15,6 @@ export class TaxReportBasicDto {
     status!: TaxReportStatus;
 }
 
-export class TaxReportsBasicResponse {
+export class TaxReportsBasicCollection {
     items!: TaxReportBasicDto[];
 }
