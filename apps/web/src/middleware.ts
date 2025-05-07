@@ -16,7 +16,7 @@ export async function middleware(req: NextRequest) {
   }
 
   if (
-    !req.nextUrl.pathname.startsWith('/skattframtol') ||
+    !req.nextUrl.pathname.startsWith('/skattframtol') &&
     !req.nextUrl.pathname.startsWith('/stadfesta-innskraningu')
   ) {
     return NextResponse.next();
