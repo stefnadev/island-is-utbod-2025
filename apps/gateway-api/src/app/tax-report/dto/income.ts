@@ -5,8 +5,8 @@ export class Unit {
   @Field(() => String)
   description!: string;
 
-  @Field(() => Int)
-  amount!: number;
+  @Field(() => Int, { nullable: true })
+  amount?: number | null;
 }
 
 @ObjectType('TaxReportDetailsIncomeUnitCollection')

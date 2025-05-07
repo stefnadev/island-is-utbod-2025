@@ -18,6 +18,24 @@ class RealEstateCollection {
   items!: RealEstate[];
 }
 
+@ObjectType('TaxReportAssetVehicle')
+class Vehicle {
+  @Field(() => String)
+  plateNumber!: string;
+
+  @Field(() => Int)
+  yearOfPurchase!: number;
+
+  @Field(() => Int)
+  purchasePrice!: number;
+}
+
+@ObjectType('TaxReportAssetVehicleCollection')
+class VehicleCollection {
+  @Field(() => [Vehicle])
+  items!: Vehicle[];
+}
+
 @ObjectType('TaxReportAssets')
 export class Assets {
   @Field(() => ID)
@@ -26,6 +44,6 @@ export class Assets {
   @Field(() => RealEstateCollection, { nullable: true })
   realEstates?: RealEstateCollection | null;
 
-  @Field(() => RealEstateCollection, { nullable: true })
-  vehicles?: RealEstateCollection | null;
+  @Field(() => VehicleCollection, { nullable: true })
+  vehicles?: VehicleCollection | null;
 }

@@ -4,7 +4,7 @@ export type TaxReportBasicDto = {
   id: string;
   userId: string;
   year: number;
-  status: 'draft' | 'submitted' | 'deleted';
+  status: 'draft' | 'submitted';
 };
 
 export type TaxReportsBasicCollection = {
@@ -13,7 +13,7 @@ export type TaxReportsBasicCollection = {
 
 export type UnitDto = {
   description: string;
-  amount: number;
+  amount?: number | null;
 };
 
 export type UnitCollection = {
@@ -64,6 +64,25 @@ export type RealEstateCollection = {
   items: Array<RealEstateDto>;
 };
 
+export type VehicleDto = {
+  /**
+   * Númer
+   */
+  plateNumber: string;
+  /**
+   * Kaupár
+   */
+  yearOfPurchase: number;
+  /**
+   * Kaupverð
+   */
+  purchasePrice: number;
+};
+
+export type VehicleCollection = {
+  items: Array<VehicleDto>;
+};
+
 export type AssetsDto = {
   id: string;
   taxReportId: string;
@@ -74,7 +93,7 @@ export type AssetsDto = {
   /**
    * Bifreiðir
    */
-  vehicles?: RealEstateCollection | null;
+  vehicles?: VehicleCollection | null;
   createdOn: string;
   modifiedOn?: string | null;
 };
@@ -164,7 +183,7 @@ export type TaxReportDto = {
   assets?: AssetsDto | null;
   debts?: DebtsDto | null;
   year: number;
-  status: 'draft' | 'submitted' | 'deleted';
+  status: 'draft' | 'submitted';
   createdOn: string;
   modifiedOn?: string | null;
 };

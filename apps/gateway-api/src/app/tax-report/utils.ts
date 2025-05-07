@@ -9,7 +9,6 @@ import { TaxReportStatus } from './dto/tax-report-status';
 export const mapTaxReportStatus = (status: TaxReportBasicDto['status']) => {
   if (status === 'draft') return TaxReportStatus.DRAFT;
   if (status === 'submitted') return TaxReportStatus.SUBMITTED;
-  if (status === 'deleted') return TaxReportStatus.DELETED;
   return TaxReportStatus.DRAFT;
 };
 
