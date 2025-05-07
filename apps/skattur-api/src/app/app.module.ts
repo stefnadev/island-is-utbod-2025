@@ -6,7 +6,7 @@ import { TaxReportController } from './tax-report/tax-report.controller';
 
 @Module({
   imports: [TaxReportModule],
-  controllers: [AppController,TaxReportController],
+  controllers: [AppController, TaxReportController],
   providers: [AppService],
 })
 export class AppModule {}

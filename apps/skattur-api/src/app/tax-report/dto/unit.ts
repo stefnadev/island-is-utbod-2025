@@ -5,8 +5,11 @@ export class UnitDto {
     @ApiProperty()
     description!: string;
 
-    @ApiProperty()
-    amount!: number;
+    @ApiProperty({
+        nullable: true,
+        required: false,
+    })
+    amount?: number;
 }
 
 export class UnitCollection {
