@@ -14,10 +14,12 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "query GetTaxReportList {\n  taxReportList {\n    items {\n      year\n      status\n    }\n  }\n}": typeof types.GetTaxReportListDocument,
+    "query GetTaxReportDetails($input: TaxReportDetailsInput!) {\n  taxReportDetails(input: $input) {\n    id\n    year\n    status\n  }\n}": typeof types.GetTaxReportDetailsDocument,
+    "query GetTaxReportList {\n  taxReportList {\n    items {\n      id\n      year\n      status\n    }\n  }\n}": typeof types.GetTaxReportListDocument,
 };
 const documents: Documents = {
-    "query GetTaxReportList {\n  taxReportList {\n    items {\n      year\n      status\n    }\n  }\n}": types.GetTaxReportListDocument,
+    "query GetTaxReportDetails($input: TaxReportDetailsInput!) {\n  taxReportDetails(input: $input) {\n    id\n    year\n    status\n  }\n}": types.GetTaxReportDetailsDocument,
+    "query GetTaxReportList {\n  taxReportList {\n    items {\n      id\n      year\n      status\n    }\n  }\n}": types.GetTaxReportListDocument,
 };
 
 /**
@@ -37,7 +39,11 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query GetTaxReportList {\n  taxReportList {\n    items {\n      year\n      status\n    }\n  }\n}"): (typeof documents)["query GetTaxReportList {\n  taxReportList {\n    items {\n      year\n      status\n    }\n  }\n}"];
+export function graphql(source: "query GetTaxReportDetails($input: TaxReportDetailsInput!) {\n  taxReportDetails(input: $input) {\n    id\n    year\n    status\n  }\n}"): (typeof documents)["query GetTaxReportDetails($input: TaxReportDetailsInput!) {\n  taxReportDetails(input: $input) {\n    id\n    year\n    status\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query GetTaxReportList {\n  taxReportList {\n    items {\n      id\n      year\n      status\n    }\n  }\n}"): (typeof documents)["query GetTaxReportList {\n  taxReportList {\n    items {\n      id\n      year\n      status\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

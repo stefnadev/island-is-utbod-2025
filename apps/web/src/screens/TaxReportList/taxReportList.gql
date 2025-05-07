@@ -1,6 +1,7 @@
 query GetTaxReportList {
   taxReportList {
     items {
+      id
       year
       status
     }

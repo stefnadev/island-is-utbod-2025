@@ -3,20 +3,115 @@
 # ------------------------------------------------------
 
 type Query {
+  taxReportDetails(input: TaxReportDetailsInput!): TaxReportDetails
   taxReportList: TaxReportListResponse!
 }
 
-type TaxReportListItem {
-  status: TaxReportListItemStatus!
+type TaxReporDebts {
+  id: ID!
+  otherDebts: TaxReportAssetDebtCollection
+  realEstateCharges: TaxReportDebtRealEstateCharges
+}
+
+type TaxReportAssetDebtCollection {
+  items: [TaxReportAssetDebtCollectionItem!]!
+}
+
+type TaxReportAssetDebtCollectionItem {
+  description: String!
+  interestCharges: Int!
+  remainingDebtsAmount: Int!
+}
+
+type TaxReportAssetRealEstate {
+  address: String!
+  appraisal: Int!
+  number: String!
+}
+
+type TaxReportAssetRealEstateCollection {
+  items: [TaxReportAssetRealEstate!]!
+}
+
+type TaxReportAssetVehicle {
+  plateNumber: String!
+  purchasePrice: Int!
+  yearOfPurchase: Int!
+}
+
+type TaxReportAssetVehicleCollection {
+  items: [TaxReportAssetVehicle!]!
+}
+
+type TaxReportAssets {
+  id: ID!
+  realEstates: TaxReportAssetRealEstateCollection
+  vehicles: TaxReportAssetVehicleCollection
+}
+
+type TaxReportDebtRealEstateCharges {
+  destination: String!
+  interestChargesAmount: Int!
+  lender: String!
+  lenderSsn: String!
+  loanDate: String!
+  loanNumber: String!
+  loanTotalNumberOfYears: Int!
+  remainingDebtsAmount: Int!
+  totalPaymentAmountOfYear: Int!
+  totalPaymentOfNominalValue: Int!
+  yearOfPurchase: Int!
+}
+
+type TaxReportDetails {
+  assets: TaxReportAssets
+  debts: TaxReporDebts
+  id: ID!
+  incomes: TaxReportDetailsIncome
+  status: TaxReportStatus!
   year: Int!
 }
 
-enum TaxReportListItemStatus {
-  DRAFT
-  REVIEWED
-  SUBMITTED
+type TaxReportDetailsIncome {
+  benefits: TaxReportDetailsIncomeUnitCollection
+  compensations: TaxReportDetailsIncomeCompensationCollection
+  id: ID!
+  salaries: TaxReportDetailsIncomeUnitCollection
+}
+
+type TaxReportDetailsIncomeCompensation {
+  company: String!
+  compensations: TaxReportDetailsIncomeUnitCollection!
+}
+
+type TaxReportDetailsIncomeCompensationCollection {
+  items: [TaxReportDetailsIncomeCompensation!]!
+}
+
+type TaxReportDetailsIncomeUnit {
+  amount: Int
+  description: String!
+}
+
+type TaxReportDetailsIncomeUnitCollection {
+  items: [TaxReportDetailsIncomeUnit!]!
+}
+
+input TaxReportDetailsInput {
+  id: String!
+}
+
+type TaxReportListItem {
+  id: ID!
+  status: TaxReportStatus!
+  year: Int!
 }
 
 type TaxReportListResponse {
   items: [TaxReportListItem!]!
+}
+
+enum TaxReportStatus {
+  DRAFT
+  SUBMITTED
 }
