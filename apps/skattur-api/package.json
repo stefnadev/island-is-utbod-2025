@@ -47,7 +47,12 @@
     }
   },
   "dependencies": {
+    "@nestjs/sequelize": "^11.0.0",
     "@nestjs/swagger": "^11.2.0",
-    "class-validator": "^0.14.2"
+    "@types/sequelize": "^4.28.20",
+    "class-validator": "^0.14.2",
+    "pg": "^8.15.6",
+    "sequelize": "^6.37.7",
+    "sequelize-typescript": "^2.1.6"
   }
 }

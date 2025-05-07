@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { Sequelize } from 'sequelize-typescript';
 import { TaxReportsBasicCollection } from './dto/tax-report-basic';
 import { TaxReportDto, TaxReportStatus } from './dto/tax-report';
 import { IncomesDto } from './dto/incomes';
 import { AssetsDto } from './dto/assets';
 import { DebtsDto } from './dto/debts';
+import { TaxReportRepository } from './db/repositories/tax-report-repository';
 
 @Injectable()
 export class TaxReportService {
+  constructor(private taxReportRepository: TaxReportRepository,
+  ) {}
   getTaxReports(): TaxReportsBasicCollection {
     return {
       items: [
@@ -31,8 +35,8 @@ export class TaxReportService {
         {
           id: '0ad24a1b-29d6-4060-8682-aa62300600db',
           userId: '533f6612-c195-4ce0-aa87-5503ab7f33b0',
-          year: 2023,
-          status: TaxReportStatus.DELETED,
+          year: 2022,
+          status: TaxReportStatus.SUBMITTED,
         }
       ]
     }
@@ -194,7 +198,7 @@ export class TaxReportService {
 
   deleteTaxReport(taxReportId: string) : TaxReportDto {
     const taxReport = this.getTaxReport(taxReportId);
-    taxReport.status = TaxReportStatus.DELETED;
+    //taxReport.status = TaxReportStatus.DELETED;
     return taxReport;
   }
 }
