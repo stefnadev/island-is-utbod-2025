@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import { Text } from '@/components/island-ui/core/src';
-import { TaxReportListResponse } from '@/grapql/graphql';
+import type { GetTaxReportListQuery } from '@/grapql/graphql';
+
+import * as styles from './TaxReportList.css';
 
 interface TaxRepostListProps {
-  taxReportList: TaxReportListResponse;
+  taxReportList: GetTaxReportListQuery['taxReportList'];
 }
 
 export const TaxReportList = ({ taxReportList }: TaxRepostListProps) => {
@@ -13,12 +15,12 @@ export const TaxReportList = ({ taxReportList }: TaxRepostListProps) => {
         <title>Skattframtöl</title>
       </Head>
       <Text variant="h1">Skattframtöl</Text>
-      <div>
+      <div className={styles.container}>
         {taxReportList.items.map((item) => {
           return (
-            <div key={item.year}>
+            <a href={`/skattframtol/${item.id}`} key={item.year}>
               {item.status} {item.year}
-            </div>
+            </a>
           );
         })}
       </div>

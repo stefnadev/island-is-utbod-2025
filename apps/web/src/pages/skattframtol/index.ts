@@ -12,8 +12,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     query: GetTaxReportListDocument,
   });
 
-  console.log(data);
-
   return {
     props: {
       taxReportList: data.taxReportList,

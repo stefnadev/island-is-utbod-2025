@@ -1,0 +1,7 @@
+query GetTaxReportDetails($input: TaxReportDetailsInput!) {
+  taxReportDetails(input: $input) {
+    id
+    year
+    status
+  }
+}
