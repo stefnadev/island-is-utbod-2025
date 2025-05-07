@@ -12,7 +12,7 @@ export enum TaxReportStatus {
 
 export class TaxReportDto {
     @ApiProperty({
-        format: 'uuid',
+        format: 'uuid'
     })
     @IsString()
     id!: string;
@@ -21,25 +21,31 @@ export class TaxReportDto {
         format: 'uuid',
     })
     @IsString()
-    applicationId!: string;
+    userId!: string;
 
     @ApiProperty({
-        type: IncomesDto
+        type: IncomesDto,
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    incomes!: IncomesDto;
+    incomes?: IncomesDto;
 
     @ApiProperty({
-        type: AssetsDto
+        type: AssetsDto,
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    assets!: AssetsDto;
+    assets?: AssetsDto;
 
     @ApiProperty({
-        type: DebtsDto
+        type: DebtsDto,
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    debts!: DebtsDto;
+    debts?: DebtsDto;
 
     @ApiProperty()
     @IsNumber()
@@ -59,7 +65,9 @@ export class TaxReportDto {
 
     @ApiProperty({
         format: 'date-time',
+        nullable: true,
+        required: false,
     })
     @IsString()
-    modifiedOn!: string;
+    modifiedOn?: string;
 }

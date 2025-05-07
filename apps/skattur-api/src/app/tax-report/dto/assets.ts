@@ -19,16 +19,20 @@ export class AssetsDto {
     @ApiProperty({
         type: RealEstateCollection,
         description: 'Innlendar fasteignir',
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    realEstates!: RealEstateCollection;
+    realEstates?: RealEstateCollection;
 
     @ApiProperty({
         type: RealEstateCollection,
         description: 'Bifreiðir',
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    vehicles!: VehicleCollection;
+    vehicles?: VehicleCollection;
 
     @ApiProperty({
         format: 'date-time',
@@ -38,7 +42,9 @@ export class AssetsDto {
 
     @ApiProperty({
         format: 'date-time',
+        nullable: true,
+        required: false,
     })
     @IsString()
-    modifiedOn!: string;
+    modifiedOn?: string;
 }

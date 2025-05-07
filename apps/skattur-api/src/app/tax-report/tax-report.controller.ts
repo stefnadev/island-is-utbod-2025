@@ -1,7 +1,7 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Param, Delete, Body } from '@nestjs/common';
 import { TaxReportService } from './tax-report.service';
 import { TaxReportDto } from './dto/tax-report';
-import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { TaxReportsBasicCollection } from './dto/tax-report-basic';
 
 @ApiTags('TaxReports')
@@ -10,7 +10,7 @@ export class TaxReportController {
   constructor(private readonly taxReportService: TaxReportService) {}
 
   @Get()
-  @ApiOkResponse({
+  @ApiResponse({
     description: 'ok',
     type: TaxReportsBasicCollection,
   })
@@ -19,7 +19,7 @@ export class TaxReportController {
     summary: 'Get tax reports',
   })
   getData() {
-    return this.taxReportService.GetTaxReports();
+    return this.taxReportService.getTaxReports();
   }
 
   @Get(':id')
@@ -33,6 +33,45 @@ export class TaxReportController {
     summary: 'View tax report',
   })
   findOne(@Param('id') id: string): TaxReportDto {
-    return this.taxReportService.GetTaxReport(id);
+    return this.taxReportService.getTaxReport(id);
+  }
+
+  @Post()
+  @ApiOkResponse({
+    description: 'ok',
+    type: TaxReportDto,
+  })
+  @ApiOperation({
+    operationId: 'createTaxReport',
+    summary: 'Create tax report',
+  })
+  create(@Body() taxReport: TaxReportDto): TaxReportDto {
+    return this.taxReportService.createTaxReport(taxReport);
+  }
+
+  @Put()
+  @ApiOkResponse({
+    description: 'ok',
+    type: TaxReportDto,
+  })
+  @ApiOperation({
+    operationId: 'updateTaxReport',
+    summary: 'Update tax report'
+  })
+  update(@Body() taxReport: TaxReportDto): TaxReportDto {
+    return this.taxReportService.updateTaxReport(taxReport);
+  }
+
+  @Delete(':id')
+  @ApiResponse({
+    description: 'ok',
+    status: 204,
+  })
+  @ApiOperation({
+    operationId: 'deleteTaxReport',
+    summary: "Delete tax report",
+  })
+  delete(@Param('id') id: string): TaxReportDto {
+    return this.taxReportService.deleteTaxReport(id);
   }
 }
