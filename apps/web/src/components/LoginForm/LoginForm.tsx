@@ -15,7 +15,6 @@ export const LoginForm = ({
   phonenumber: initialPhonenumber,
   securityCode,
 }: LoginFormProps) => {
-  console.log(securityCode);
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.loginFormWrapper}>
