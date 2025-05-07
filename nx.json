@@ -60,7 +60,7 @@
       },
       "exclude": [
         "apps/skattur-api-e2e/**/*",
-        "apps/stafraent-island-api-e2e/**/*",
+        "apps/thjodskra-api-e2e/**/*",
         "apps/gateway-api-e2e/**/*"
       ]
     },
