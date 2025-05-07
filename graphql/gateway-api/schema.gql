@@ -33,10 +33,20 @@ type TaxReportAssetRealEstateCollection {
   items: [TaxReportAssetRealEstate!]!
 }
 
+type TaxReportAssetVehicle {
+  plateNumber: String!
+  purchasePrice: Int!
+  yearOfPurchase: Int!
+}
+
+type TaxReportAssetVehicleCollection {
+  items: [TaxReportAssetVehicle!]!
+}
+
 type TaxReportAssets {
   id: ID!
   realEstates: TaxReportAssetRealEstateCollection
-  vehicles: TaxReportAssetRealEstateCollection
+  vehicles: TaxReportAssetVehicleCollection
 }
 
 type TaxReportDebtRealEstateCharges {
@@ -79,7 +89,7 @@ type TaxReportDetailsIncomeCompensationCollection {
 }
 
 type TaxReportDetailsIncomeUnit {
-  amount: Int!
+  amount: Int
   description: String!
 }
 
@@ -102,7 +112,6 @@ type TaxReportListResponse {
 }
 
 enum TaxReportStatus {
-  DELETED
   DRAFT
   SUBMITTED
 }

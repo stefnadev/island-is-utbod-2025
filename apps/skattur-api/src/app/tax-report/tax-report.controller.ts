@@ -1,7 +1,20 @@
-import { Controller, Get, Post, Put, Param, Delete, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Param,
+  Delete,
+  Body,
+} from '@nestjs/common';
 import { TaxReportService } from './tax-report.service';
 import { TaxReportDto } from './dto/tax-report';
-import { ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiOkResponse,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { TaxReportsBasicCollection } from './dto/tax-report-basic';
 
 @ApiTags('TaxReports')
@@ -19,6 +32,7 @@ export class TaxReportController {
     summary: 'Get tax reports',
   })
   getData() {
+    console.log('EREE');
     return this.taxReportService.getTaxReports();
   }
 
@@ -26,7 +40,6 @@ export class TaxReportController {
   @ApiOkResponse({
     description: 'ok',
     type: TaxReportDto,
-
   })
   @ApiOperation({
     operationId: 'viewTaxReport',
@@ -56,7 +69,7 @@ export class TaxReportController {
   })
   @ApiOperation({
     operationId: 'updateTaxReport',
-    summary: 'Update tax report'
+    summary: 'Update tax report',
   })
   update(@Body() taxReport: TaxReportDto): TaxReportDto {
     return this.taxReportService.updateTaxReport(taxReport);
@@ -69,7 +82,7 @@ export class TaxReportController {
   })
   @ApiOperation({
     operationId: 'deleteTaxReport',
-    summary: "Delete tax report",
+    summary: 'Delete tax report',
   })
   delete(@Param('id') id: string): TaxReportDto {
     return this.taxReportService.deleteTaxReport(id);
