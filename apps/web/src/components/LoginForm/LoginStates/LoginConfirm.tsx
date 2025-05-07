@@ -22,7 +22,6 @@ export const LoginConfirm = ({ securityCode }: LoginConfirmProp) => {
             <div className={styles.logo}>
               <Logo width={160} />
             </div>
-
             <Box
               marginBottom={5}
               textAlign="center"
@@ -38,7 +37,6 @@ export const LoginConfirm = ({ securityCode }: LoginConfirmProp) => {
               <Text variant={'eyebrow'} fontWeight="light" marginBottom={1}>
                 á þjónustuvef Skattsins
               </Text>
-
               <Stack space={2}>
                 <Box
                   background="backgroundBrandMinimal"
@@ -54,7 +52,6 @@ export const LoginConfirm = ({ securityCode }: LoginConfirmProp) => {
                     </Text>
                   </Stack>
                 </Box>
-
                 <LoadingDots />
                 <Text variant="small" fontWeight="light">
                   Staðfestu auðkenninguna ef öryggistalan er sú sama og birtist
@@ -67,7 +64,6 @@ export const LoginConfirm = ({ securityCode }: LoginConfirmProp) => {
               </Stack>
             </Box>
           </Box>
-
           <Box
             display="flex"
             justifyContent="spaceBetween"
