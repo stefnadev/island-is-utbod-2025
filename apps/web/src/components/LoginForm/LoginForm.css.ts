@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { theme } from '../island-ui/theme';
+import { themeUtils } from '../island-ui/theme';
 
 export const logo = style({
   position: 'absolute',
@@ -19,28 +19,19 @@ export const pageWrapper = style({
   margin: '0 auto',
 });
 export const loginFormWidth = style({
-  width: '65%',
   margin: '0 auto',
+  ...themeUtils.responsiveStyle({
+    xs: {
+      width: '85%',
+    },
+    sm: {
+      width: '65%',
+    },
+  }),
 });
 export const loginFormWrapper = style({
   position: 'relative',
   width: '100%',
   maxWidth: '512px',
   margin: '60px auto 0',
-});
-export const dividerBackground = style({
-  position: 'relative',
-  width: '100%',
-  borderTop: '1px solid',
-  borderColor: theme.color.dark100,
-});
-export const dividerText = style({
-  position: 'absolute',
-  left: '50%',
-  right: '0',
-  transform: 'translateX(-50%)',
-  width: '190px',
-  top: '-10px',
-  background: 'white',
-  padding: '0 20px',
 });

@@ -1,4 +1,4 @@
-import LoadingDots from '@/components/island-ui/core/src/lib/LoadingDots/LoadingDots';
+import LoginConfirm from '@/components/LoginForm/LoginStates/LoginConfirm';
 import { useEffect } from 'react';
 
 interface ConfirmLoginProps {
@@ -9,12 +9,7 @@ export const ConfirmLogin = ({ securityCode }: ConfirmLoginProps) => {
   useEffect(() => {
     setTimeout(() => {
       window.location.href = '/skattframtol/2025';
-    }, 2000);
+    }, 3000);
   });
-  return (
-    <div>
-      <div>{securityCode}</div>
-      <LoadingDots />
-    </div>
-  );
+  return <LoginConfirm securityCode={securityCode} />;
 };

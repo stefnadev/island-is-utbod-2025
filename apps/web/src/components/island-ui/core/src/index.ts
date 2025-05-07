@@ -18,6 +18,7 @@ export * from './lib/VisuallyHidden/VisuallyHidden';
 export * from './lib/Navigation/Navigation';
 export * from './lib/Breadcrumbs/Breadcrumbs';
 export * from './lib/Hyphen/Hyphen';
+export * from './lib/Checkbox/Checkbox';
 
 // Context
 export * from './lib/context';
