@@ -12,6 +12,10 @@ export * from './lib/Columns/Columns';
 export * from './lib/Column/Column';
 export * from './lib/FocusableBox/FocusableBox';
 export * from './lib/Hidden/Hidden';
+export * from './lib/Divider/Divider';
+export * from './lib/Stack/Stack';
+export * from './lib/VisuallyHidden/VisuallyHidden';
+export * from './lib/Navigation/Navigation';
 
 // Context
 export * from './lib/context';
