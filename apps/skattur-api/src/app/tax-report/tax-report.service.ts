@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { Sequelize } from 'sequelize-typescript';
 import { TaxReportsBasicCollection } from './dto/tax-report-basic';
 import { TaxReportDto, TaxReportStatus } from './dto/tax-report';
 import { IncomesDto } from './dto/incomes';
@@ -9,8 +8,7 @@ import { TaxReportRepository } from './db/repositories/tax-report-repository';
 
 @Injectable()
 export class TaxReportService {
-  constructor(private taxReportRepository: TaxReportRepository,
-  ) {}
+  constructor(private taxReportRepository: TaxReportRepository) {}
   getTaxReports(): TaxReportsBasicCollection {
     return {
       items: [
@@ -37,9 +35,9 @@ export class TaxReportService {
           userId: '533f6612-c195-4ce0-aa87-5503ab7f33b0',
           year: 2022,
           status: TaxReportStatus.SUBMITTED,
-        }
-      ]
-    }
+        },
+      ],
+    };
   }
 
   getTaxReport(id: string): TaxReportDto {
@@ -53,7 +51,7 @@ export class TaxReportService {
       status: TaxReportStatus.DRAFT,
       createdOn: '2025-05-05 00:00:00',
       modifiedOn: '2025-05-05 00:00:00',
-    }
+    };
   }
 
   getIncomes(taxReportId: string): IncomesDto {
@@ -69,16 +67,16 @@ export class TaxReportService {
           {
             description: 'Mús & Merki ehf.',
             amount: 900000,
-          }
-        ]
+          },
+        ],
       },
       benefits: {
         items: [
           {
             description: 'Dagpeningar',
             amount: 120000,
-          }
-        ]
+          },
+        ],
       },
       compensations: {
         items: [
@@ -93,19 +91,19 @@ export class TaxReportService {
                 {
                   description: 'Stafsmenntunarstyrkur',
                   amount: 130000,
-                }
-              ]
-            }
-          }
-        ]
+                },
+              ],
+            },
+          },
+        ],
       },
       createdOn: '2025-05-05 00:00:00',
       modifiedOn: '2025-05-05 00:00:00',
-    }
+    };
   }
 
   getAssets(taxReportId: string): AssetsDto {
-    return {     
+    return {
       id: '4735071d-bfb7-40c0-80f7-538b0994b1dc',
       taxReportId: taxReportId,
       realEstates: {
@@ -114,8 +112,8 @@ export class TaxReportService {
             number: '210-9876',
             address: 'Bláfjallagata 12',
             appraisal: 52000000,
-          }
-        ]
+          },
+        ],
       },
       vehicles: {
         items: [
@@ -128,12 +126,12 @@ export class TaxReportService {
             plateNumber: 'JU-329',
             yearOfPurchase: 2012,
             purchasePrice: 430000,
-          }
-        ]
+          },
+        ],
       },
       createdOn: '2025-05-05 00:00:00',
       modifiedOn: '2025-05-05 00:00:00',
-    }
+    };
   }
 
   getDebts(taxReportId: string): DebtsDto {
@@ -179,24 +177,24 @@ export class TaxReportService {
             description: 'Þing- og sveitarsjóðsgjöld, Skatturinn',
             interestCharges: 224,
             remainingDebtsAmount: 0,
-          }
-        ]
+          },
+        ],
       },
       createdOn: '2025-05-05 00:00:00',
       modifiedOn: '2025-05-05 00:00:00',
-    }
+    };
   }
 
-  createTaxReport(taxReport: TaxReportDto) : TaxReportDto {
+  createTaxReport(taxReport: TaxReportDto): TaxReportDto {
     taxReport.id = 'd95659bd-8685-4fbb-8902-cae4f5890bd9';
     return taxReport;
   }
 
-  updateTaxReport(taxReport: TaxReportDto) : TaxReportDto {
+  updateTaxReport(taxReport: TaxReportDto): TaxReportDto {
     return taxReport;
   }
 
-  deleteTaxReport(taxReportId: string) : TaxReportDto {
+  deleteTaxReport(taxReportId: string): TaxReportDto {
     const taxReport = this.getTaxReport(taxReportId);
     //taxReport.status = TaxReportStatus.DELETED;
     return taxReport;
