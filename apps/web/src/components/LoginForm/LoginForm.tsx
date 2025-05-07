@@ -7,13 +7,11 @@ import LoginStart from './LoginStates/LoginStart';
 interface LoginFormProps {
   errorMessage?: string;
   phonenumber?: string;
-  securityCode?: string;
 }
 
 export const LoginForm = ({
   errorMessage,
   phonenumber: initialPhonenumber,
-  securityCode,
 }: LoginFormProps) => {
   return (
     <div className={styles.pageWrapper}>
