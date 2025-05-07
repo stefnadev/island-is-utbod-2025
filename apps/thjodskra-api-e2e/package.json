@@ -1,10 +1,10 @@
 {
-  "name": "@island2025-alhlidateymi/stafraent-island-api-e2e",
+  "name": "@island2025-alhlidateymi/thjodskra-api-e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@island2025-alhlidateymi/stafraent-island-api"
+      "@island2025-alhlidateymi/thjodskra-api"
     ],
     "targets": {
       "e2e": {
@@ -13,11 +13,11 @@
           "{projectRoot}/test-output/jest/coverage"
         ],
         "options": {
-          "jestConfig": "apps/stafraent-island-api-e2e/jest.config.ts",
+          "jestConfig": "apps/thjodskra-api-e2e/jest.config.ts",
           "passWithNoTests": true
         },
         "dependsOn": [
-          "@island2025-alhlidateymi/stafraent-island-api:build"
+          "@island2025-alhlidateymi/thjodskra-api:build"
         ]
       }
     }

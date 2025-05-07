@@ -1,5 +1,5 @@
 {
-  "name": "@island2025-alhlidateymi/stafraent-island-api",
+  "name": "@island2025-alhlidateymi/thjodskra-api",
   "version": "0.0.1",
   "private": true,
   "nx": {
@@ -27,15 +27,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@island2025-alhlidateymi/stafraent-island-api:build",
+          "buildTarget": "@island2025-alhlidateymi/thjodskra-api:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@island2025-alhlidateymi/stafraent-island-api:build:development"
+            "buildTarget": "@island2025-alhlidateymi/thjodskra-api:build:development"
           },
           "production": {
-            "buildTarget": "@island2025-alhlidateymi/stafraent-island-api:build:production"
+            "buildTarget": "@island2025-alhlidateymi/thjodskra-api:build:production"
           }
         }
       },

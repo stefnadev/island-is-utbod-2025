@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "out-tsc/@island2025-alhlidateymi/stafraent-island-api-e2e",
+    "outDir": "out-tsc/@island2025-alhlidateymi/thjodskra-api-e2e",
     "esModuleInterop": true,
     "noUnusedLocals": false,
     "noImplicitAny": false
