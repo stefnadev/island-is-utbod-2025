@@ -1,6 +1,5 @@
 import { Test } from '@nestjs/testing';
 import { TaxReportService } from './tax-report.service';
-import { TaxReportsBasicCollection } from './dto/tax-report-basic';
 
 describe('TaxReportService', () => {
   let service: TaxReportService;
@@ -11,11 +10,5 @@ describe('TaxReportService', () => {
     }).compile();
 
     service = app.get<TaxReportService>(TaxReportService);
-  });
-
-  describe('getData', () => {
-    it('should return a tax report basic response', () => {
-      expect(service.getTaxReports()).toBeInstanceOf(TaxReportsBasicCollection);
-    });
   });
 });

@@ -52,7 +52,9 @@
     "class-validator": "^0.14.2",
     "pg": "^8.15.6",
     "sequelize": "^6.37.7",
-    "sequelize-typescript": "^2.1.6"
+    "sequelize-cli": "^6.6.3",
+    "sequelize-typescript": "^2.1.6",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@types/sequelize": "^4.28.20"
