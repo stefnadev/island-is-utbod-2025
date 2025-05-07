@@ -19,6 +19,12 @@ export * from './lib/Navigation/Navigation';
 export * from './lib/Breadcrumbs/Breadcrumbs';
 export * from './lib/Hyphen/Hyphen';
 export * from './lib/Checkbox/Checkbox';
+export * from './lib/Tag/Tag';
+export * from './lib/Bullet/Bullet';
+export * from './lib/IconBullet/IconBullet';
+export * from './lib/BulletList/BulletList';
+export * from './lib/DatePicker/DatePicker';
+export * from './lib/RadioButton/RadioButton';
 
 // Context
 export * from './lib/context';
