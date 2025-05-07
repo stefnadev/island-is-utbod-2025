@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { TaxReportStatus } from './tax-report';
 import { IsArray, IsNumber, IsString } from 'class-validator'
-import { isArray } from 'lodash';
 
 export class TaxReportBasicDto {
     @ApiProperty({
@@ -13,7 +12,7 @@ export class TaxReportBasicDto {
     @ApiProperty({
         format: 'uuid',
     })
-    applicationId!: string;
+    userId!: string;
 
     @ApiProperty()
     @IsNumber()

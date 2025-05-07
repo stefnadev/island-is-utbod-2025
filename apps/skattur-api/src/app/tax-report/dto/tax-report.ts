@@ -15,31 +15,31 @@ export class TaxReportDto {
         format: 'uuid',
     })
     @IsString()
-    id!: string;
+    id?: string;
 
     @ApiProperty({
         format: 'uuid',
     })
     @IsString()
-    applicationId!: string;
+    userId!: string;
 
     @ApiProperty({
         type: IncomesDto
     })
     @IsObject()
-    incomes!: IncomesDto;
+    incomes?: IncomesDto;
 
     @ApiProperty({
         type: AssetsDto
     })
     @IsObject()
-    assets!: AssetsDto;
+    assets?: AssetsDto;
 
     @ApiProperty({
         type: DebtsDto
     })
     @IsObject()
-    debts!: DebtsDto;
+    debts?: DebtsDto;
 
     @ApiProperty()
     @IsNumber()
