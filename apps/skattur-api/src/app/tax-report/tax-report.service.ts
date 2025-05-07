@@ -7,7 +7,7 @@ import { DebtsDto } from './dto/debts';
 
 @Injectable()
 export class TaxReportService {
-  GetTaxReports(): TaxReportsBasicCollection {
+  getTaxReports(): TaxReportsBasicCollection {
     return {
       items: [
         {
@@ -38,13 +38,13 @@ export class TaxReportService {
     }
   }
 
-  GetTaxReport(id: string): TaxReportDto {
+  getTaxReport(id: string): TaxReportDto {
     return {
       id: id,
       userId: '533f6612-c195-4ce0-aa87-5503ab7f33b0',
-      incomes: this.GetIncomes(id),
-      assets: this.GetAssets(id),
-      debts: this.GetDebts(id),
+      incomes: this.getIncomes(id),
+      assets: this.getAssets(id),
+      debts: this.getDebts(id),
       year: 2025,
       status: TaxReportStatus.DRAFT,
       createdOn: '2025-05-05 00:00:00',
@@ -52,7 +52,7 @@ export class TaxReportService {
     }
   }
 
-  GetIncomes(taxReportId: string): IncomesDto {
+  getIncomes(taxReportId: string): IncomesDto {
     return {
       id: '957b1530-467f-45ad-966b-cccd139b41b4',
       taxReportId: taxReportId,
@@ -100,7 +100,7 @@ export class TaxReportService {
     }
   }
 
-  GetAssets(taxReportId: string): AssetsDto {
+  getAssets(taxReportId: string): AssetsDto {
     return {     
       id: '4735071d-bfb7-40c0-80f7-538b0994b1dc',
       taxReportId: taxReportId,
@@ -132,7 +132,7 @@ export class TaxReportService {
     }
   }
 
-  GetDebts(taxReportId: string): DebtsDto {
+  getDebts(taxReportId: string): DebtsDto {
     return {
       id: '8d357de3-05fa-4565-ae58-9601769e9e65',
       taxReportId: taxReportId,
@@ -183,17 +183,17 @@ export class TaxReportService {
     }
   }
 
-  CreateTaxReport(taxReport: TaxReportDto) : TaxReportDto {
+  createTaxReport(taxReport: TaxReportDto) : TaxReportDto {
     taxReport.id = 'd95659bd-8685-4fbb-8902-cae4f5890bd9';
     return taxReport;
   }
 
-  UpdateTaxReport(taxReport: TaxReportDto) : TaxReportDto {
+  updateTaxReport(taxReport: TaxReportDto) : TaxReportDto {
     return taxReport;
   }
 
-  DeleteTaxReport(taxReportId: string) : TaxReportDto {
-    const taxReport = this.GetTaxReport(taxReportId);
+  deleteTaxReport(taxReportId: string) : TaxReportDto {
+    const taxReport = this.getTaxReport(taxReportId);
     taxReport.status = TaxReportStatus.DELETED;
     return taxReport;
   }

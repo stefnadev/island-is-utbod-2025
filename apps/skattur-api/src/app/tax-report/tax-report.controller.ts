@@ -19,7 +19,7 @@ export class TaxReportController {
     summary: 'Get tax reports',
   })
   getData() {
-    return this.taxReportService.GetTaxReports();
+    return this.taxReportService.getTaxReports();
   }
 
   @Get(':id')
@@ -33,7 +33,7 @@ export class TaxReportController {
     summary: 'View tax report',
   })
   findOne(@Param('id') id: string): TaxReportDto {
-    return this.taxReportService.GetTaxReport(id);
+    return this.taxReportService.getTaxReport(id);
   }
 
   @Post()
@@ -46,7 +46,7 @@ export class TaxReportController {
     summary: 'Create tax report',
   })
   create(@Body() taxReport: TaxReportDto): TaxReportDto {
-    return this.taxReportService.CreateTaxReport(taxReport);
+    return this.taxReportService.createTaxReport(taxReport);
   }
 
   @Put()
@@ -59,7 +59,7 @@ export class TaxReportController {
     summary: 'Update tax report'
   })
   update(@Body() taxReport: TaxReportDto): TaxReportDto {
-    return this.taxReportService.UpdateTaxReport(taxReport);
+    return this.taxReportService.updateTaxReport(taxReport);
   }
 
   @Delete(':id')
@@ -72,6 +72,6 @@ export class TaxReportController {
     summary: "Delete tax report",
   })
   delete(@Param('id') id: string): TaxReportDto {
-    return this.taxReportService.DeleteTaxReport(id);
+    return this.taxReportService.deleteTaxReport(id);
   }
 }

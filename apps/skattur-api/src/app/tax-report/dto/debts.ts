@@ -18,17 +18,21 @@ export class DebtsDto {
 
     @ApiProperty({
         type: RealEstateChargesDto,
-        description: 'Vaxtagjöld vegna íbúðarhúsnæðis til eigin nota'
+        description: 'Vaxtagjöld vegna íbúðarhúsnæðis til eigin nota',
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    realEstateCharges!: RealEstateChargesDto;
+    realEstateCharges?: RealEstateChargesDto;
 
     @ApiProperty({
         type: DebtCollection,
         description: 'Aðrar skuldir og vaxtagjöld',
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    otherDebts!: DebtCollection;
+    otherDebts?: DebtCollection;
 
     @ApiProperty({
         format: 'date-time',
@@ -38,7 +42,9 @@ export class DebtsDto {
 
     @ApiProperty({
         format: 'date-time',
+        nullable: true,
+        required: false,
     })
     @IsString()
-    modifiedOn!: string;
+    modifiedOn?: string;
 }

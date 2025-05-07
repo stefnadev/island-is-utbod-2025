@@ -19,21 +19,27 @@ export class IncomesDto {
     @ApiProperty({
         type: UnitCollection,
         description: 'Launatekjur og starfstengdar greiðslur',
+        nullable: true,
+        required: false,
     })
     @IsObject()
-    salaries!: UnitCollection;
+    salaries?: UnitCollection;
 
     @ApiProperty({
         type: UnitCollection,
         description: 'Ökutækjastyrkur. Dagpeningar. Hlunnindi',
+        nullable: true,
+        required: false,
     })
-    benefits!: UnitCollection;
+    benefits?: UnitCollection;
 
     @ApiProperty({
         type: CompensationCollection,
         description: 'Lífeyrisgreiðslur. Greiðslur frá Tryggingastofnun. Aðrar bótagreiðslur, styrkir o.fl.',
+        nullable: true,
+        required: false,
     })
-    compensations!: CompensationCollection;
+    compensations?: CompensationCollection;
 
     @ApiProperty({
         format: 'date-time',
@@ -43,7 +49,9 @@ export class IncomesDto {
 
     @ApiProperty({
         format: 'date-time',
+        nullable: true,
+        required: false,
     })
     @IsString()
-    modifiedOn!: string;
+    modifiedOn?: string;
 }
