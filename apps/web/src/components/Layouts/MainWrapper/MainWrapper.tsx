@@ -65,7 +65,6 @@ export const MainWrapper = () => {
           baseId="pageNav"
           items={navigationData.items}
           title={navigationData.title}
-          activeItemTitle={'ble'}
           renderLink={(link, item) => {
             return !item?.href || shouldLinkBeAnAnchorTag(item.href) ? (
               link
