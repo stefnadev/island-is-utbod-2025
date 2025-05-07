@@ -13,6 +13,7 @@
     "@vanilla-extract/recipes": "^0.5.5",
     "cookies-next": "^5.1.0",
     "graphql": "^16.11.0",
+    "hypher": "^0.2.5",
     "jsonwebtoken": "^9.0.2",
     "ms": "^2.1.3",
     "next": "~15.2.4",

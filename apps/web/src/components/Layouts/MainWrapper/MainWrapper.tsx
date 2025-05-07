@@ -4,18 +4,36 @@ import { shouldLinkBeAnAnchorTag } from '../../shared/utils';
 import {
   Box,
   Button,
+  Breadcrumbs,
   LinkV2,
   Stack,
   Navigation,
   Text,
+  Hyphen,
 } from '@/components/island-ui/core/src';
 import { useRouter } from 'next/router';
 import Sticky from '@/components/Sticky/Sticky';
 import NextLink from 'next/link';
+import Image from 'next/image';
 import { ProcessEntry } from '@/components/island-ui/contentful/src';
+
+interface BreadCrumbItem {
+  title: string;
+  href?: string;
+  slug?: string[];
+  typename?: string;
+  isTag?: boolean;
+  isCurrentPage?: boolean;
+}
 
 export const MainWrapper = () => {
   const router = useRouter();
+  const breadcrumbItems: BreadCrumbItem[] = [
+    { title: 'Ísland.is', href: '#' },
+    { title: 'Fjármál og skattar', href: '/' },
+    { title: 'Skattframtal', href: '/' },
+  ];
+
   const navigationData = {
     title: 'Efnisyfirlit',
     href: '#',
@@ -42,6 +60,13 @@ export const MainWrapper = () => {
       },
     ],
   };
+
+  const relatedLinks: any[] = [
+    { title: 'Link item', url: '/' },
+    { title: 'Link item', url: '/' },
+    { title: 'Link item', url: '/' },
+    { title: 'Link item', url: '/' },
+  ];
   const sidebarContent = (
     <Sticky>
       <Stack space={3}>
@@ -60,6 +85,36 @@ export const MainWrapper = () => {
             </Button>
           </LinkV2>
         </Box>
+        <Box
+          background="purple100"
+          borderRadius="large"
+          padding={[3, 3, 4]}
+          display="flex"
+          alignItems="center"
+        >
+          <Box
+            display={['block', 'block', 'none', 'block']}
+            style={{ flex: '0 0 64px' }}
+            marginRight={3}
+          >
+            <Image
+              width={64}
+              height={64}
+              src={'/images/merki-skatturinn.png'}
+              alt=""
+            />
+          </Box>
+          <Box>
+            <Text variant="eyebrow" color="purple600">
+              {'Þjónustuaðili'}
+            </Text>
+            <Text variant="h4" as="h3" color="purple600" lineHeight="sm">
+              <Hyphen minRight={5} locale={'is'}>
+                {'Skatturinn'}
+              </Hyphen>
+            </Text>
+          </Box>
+        </Box>
 
         <Navigation
           baseId="pageNav"
@@ -75,6 +130,20 @@ export const MainWrapper = () => {
             );
           }}
         />
+        <Box background="purple100" borderRadius="large" padding={[3, 3, 4]}>
+          <Stack space={[1, 1, 2]}>
+            <Text variant="eyebrow" as="h2" color="purple600">
+              {'Tengt efni'}
+            </Text>
+            {relatedLinks.map((link) => (
+              <LinkV2 key={link.url} href={link.url} underline="normal">
+                <Text key={link.url} color="purple600" as="span">
+                  {link.title}
+                </Text>
+              </LinkV2>
+            ))}
+          </Stack>
+        </Box>
       </Stack>
     </Sticky>
   );
@@ -86,6 +155,18 @@ export const MainWrapper = () => {
       </Head>
       <SidebarLayout sidebarContent={sidebarContent}>
         <Stack space={3}>
+          <Breadcrumbs
+            items={breadcrumbItems ?? []}
+            renderLink={(link, item) => {
+              return item?.href ? (
+                <NextLink href={item?.href} legacyBehavior>
+                  {link}
+                </NextLink>
+              ) : (
+                link
+              );
+            }}
+          />
           <Text variant="h1">Að skila skattframtali</Text>
           <Text>
             Skattframtal geymir upplýsingar um tekjur og eignir einstaklinga og
