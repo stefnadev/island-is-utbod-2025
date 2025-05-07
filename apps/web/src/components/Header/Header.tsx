@@ -21,14 +21,6 @@ import { ResponsiveSpace } from '../island-ui/core/src/lib/Box/useBoxStyles';
 interface HeaderProps {
   showSearchInHeader?: boolean;
   buttonColorScheme?: ButtonTypes['colorScheme'];
-  languageToggleQueryParams?: '';
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore make web strict
-  megaMenuData;
-  organizationSearchFilter?: string;
-  searchPlaceholder?: string;
-  customTopLoginButtonItem?: '';
-  loginButtonType?: 'dropdown' | 'link';
 }
 
 const marginLeft = [1, 1, 1, 2] as ResponsiveSpace;
@@ -88,7 +80,7 @@ export const Header: FC<React.PropsWithChildren<HeaderProps>> = ({
 
                     <Box marginLeft={marginLeft}>
                       <Hidden above="sm">
-                        <a href={'/innskraning'} tabIndex={-1}>
+                        <a href={'/'} tabIndex={-1}>
                           <Button
                             variant="utility"
                             icon="person"
@@ -98,7 +90,7 @@ export const Header: FC<React.PropsWithChildren<HeaderProps>> = ({
                         </a>
                       </Hidden>
                       <Hidden below="md">
-                        <a href={'/innskraning'} tabIndex={-1}>
+                        <a href={'/'} tabIndex={-1}>
                           <Button variant="utility" icon="person" as="span">
                             {'Mínar síður'}
                           </Button>

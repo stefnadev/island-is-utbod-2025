@@ -7,7 +7,7 @@ import Header from '@/components/Header/Header';
 export const Home = () => {
   return (
     <div className={styles.container}>
-      <Header megaMenuData={undefined} />
+      <Header />
       <Head>
         <title>Að skila skattframtali</title>
       </Head>
