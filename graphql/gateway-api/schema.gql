@@ -7,16 +7,17 @@ type Query {
 }
 
 type TaxReportListItem {
-  status: TaxReportListItemStatus!
+  id: ID!
+  status: TaxReportStatus!
   year: Int!
-}
-
-enum TaxReportListItemStatus {
-  DRAFT
-  REVIEWED
-  SUBMITTED
 }
 
 type TaxReportListResponse {
   items: [TaxReportListItem!]!
+}
+
+enum TaxReportStatus {
+  DELETED
+  DRAFT
+  SUBMITTED
 }

@@ -1,6 +1,6 @@
 import { Query } from '@nestjs/graphql';
 import { Resolver } from '@nestjs/graphql';
-import { TaxReportListResponse } from './models/tax-report.model';
+import { TaxReportListResponse } from './dto/tax-report-list-item';
 import { TaxReportService } from './tax-report.service';
 
 @Resolver()
