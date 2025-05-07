@@ -26,7 +26,7 @@ export class AssetsDto {
     realEstates?: RealEstateCollection;
 
     @ApiProperty({
-        type: RealEstateCollection,
+        type: VehicleCollection,
         description: 'Bifreiðir',
         nullable: true,
         required: false,

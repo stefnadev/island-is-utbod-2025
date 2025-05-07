@@ -7,7 +7,6 @@ import { IsNumber, IsObject, IsString } from 'class-validator'
 export enum TaxReportStatus {
     DRAFT = 'Draft',
     SUBMITTED = 'Submitted',
-    DELETED = 'deleted',
 }
 
 export class TaxReportDto {
@@ -52,7 +51,7 @@ export class TaxReportDto {
     year!: number;
 
     @ApiProperty({
-        enum: ['draft','submitted','deleted']
+        enum: ['draft','submitted']
     })
     @IsString()
     status!: TaxReportStatus;

@@ -15,7 +15,7 @@ describe('TaxReportService', () => {
 
   describe('getData', () => {
     it('should return a tax report basic response', () => {
-      expect(service.GetTaxReports()).toBeInstanceOf(TaxReportsBasicCollection);
+      expect(service.getTaxReports()).toBeInstanceOf(TaxReportsBasicCollection);
     });
   });
 });
