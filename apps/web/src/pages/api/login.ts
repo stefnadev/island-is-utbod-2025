@@ -41,7 +41,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     expires: expirationDate,
   });
 
-  return res.redirect('/skattframtol');
+  return res.redirect('/stadfesta-innskraningu');
 };
 
 export default handler;
