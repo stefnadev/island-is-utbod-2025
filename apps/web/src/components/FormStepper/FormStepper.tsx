@@ -80,7 +80,7 @@ const Step = ({
   >
     {number > 1 && <Line focused={current || completed} />}
     <StepNumber focused={current || completed}>
-      {completed ? <Icon icon="checkmark" /> : number}
+      {completed ? <Icon type="check" /> : number}
     </StepNumber>
     <Text variant="default" fontWeight={current ? 'semiBold' : 'light'}>
       {title}

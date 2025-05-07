@@ -76,14 +76,14 @@ export const Test: NextPage = () => {
   });
 
   const [savedAt, setSavedAt] = useState(new Date());
-  const [lastChanged, setLastChanged] = useState(null);
+  const [lastChanged, setLastChanged] = useState<Date | null>(null);
   const [saveState, setSaveState] = useState('saved');
   const [concent, setConcent] = useState(false);
 
   const setFormData = (data: any) => {
     _setFormData(data);
     setSaveState('changed');
-    //setLastChanged(new Date());
+    setLastChanged(new Date());
   };
 
   useEffect(() => {
@@ -118,24 +118,16 @@ export const Test: NextPage = () => {
 
   const nextStep = () => {
     if (currentStep === 4) {
-      fetch('/api/save', {
-        method: 'POST',
-        body: JSON.stringify({
-          step: currentStep,
-          completed: true,
-          ...formData,
-        }),
-      }).then(() => router.push('/umsokn/yfirlit'));
     } else {
       setCurrentStep(currentStep + 1);
     }
     setSaveState('changed');
-    // setLastChanged(new Date());
+    setLastChanged(new Date());
   };
   const previousStep = () => {
     setCurrentStep(currentStep - 1);
     setSaveState('changed');
-    //setLastChanged(new Date());
+    setLastChanged(new Date());
   };
 
   return (
