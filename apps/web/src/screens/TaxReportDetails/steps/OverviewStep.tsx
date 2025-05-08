@@ -5,8 +5,8 @@ export const OverviewStep = ({ previousStep, nextStep }: StepProps) => {
   return (
     <Box paddingTop={3}>
       <Text>
-        Vinsamlegast farðu yfir gögnin hér að neðan til að staðfesta að réttar
-        upplýsingar hafi verið gefnar upp.
+        Vinsamlegast farðu yfir gögnin og staðfestu að réttar upplýsingar hafi
+        verið gefnar upp áður en þú skilar skattframtalinu.
       </Text>
       <Box
         marginTop={8}
@@ -17,7 +17,7 @@ export const OverviewStep = ({ previousStep, nextStep }: StepProps) => {
         <Button preTextIcon="arrowBack" variant="ghost" onClick={previousStep}>
           Til baka
         </Button>
-        <Button onClick={nextStep}>Skila framtali</Button>
+        <Button onClick={nextStep}>Skila skattframtali</Button>
       </Box>
     </Box>
   );
