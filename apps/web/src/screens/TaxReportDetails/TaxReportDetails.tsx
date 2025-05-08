@@ -45,13 +45,15 @@ export const TaxReportDetails = () => {
   };
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, [currentStep]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       if (saveState === 'changed' && lastChanged !== null) {
         if (Date.now() - lastChanged.getTime() > 3000) {
-          // fetch('/api/save', {
-          //   method: 'POST',
-          //   body: JSON.stringify({ ...formData, step: currentStep }),
-          // });
           setSaveState('saving');
         }
       }
