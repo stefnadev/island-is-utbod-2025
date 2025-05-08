@@ -11,13 +11,18 @@ export const StepNumber = style({
   alignItems: 'center',
   color: ' #fff',
   background: '#c3abd9',
-  marginRight: 24,
   fontSize: 16,
   fontWeight: 600,
   zIndex: 9,
   ...themeUtils.responsiveStyle({
-    md: {
+    xs: {
       marginRight: '12px',
+    },
+    sm: {
+      marginRight: '12px',
+    },
+    md: {
+      marginRight: 16,
     },
   }),
 });
@@ -30,8 +35,17 @@ export const Line = style({
   left: '15px',
   top: '-20px',
   ...themeUtils.responsiveStyle({
+    xs: {
+      display: 'none',
+    },
+    sm: {
+      display: 'none',
+    },
     md: {
       display: 'none',
+    },
+    lg: {
+      display: 'block',
     },
   }),
 });

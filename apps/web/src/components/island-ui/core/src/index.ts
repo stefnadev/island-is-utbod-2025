@@ -23,7 +23,6 @@ export * from './lib/Tag/Tag';
 export * from './lib/Bullet/Bullet';
 export * from './lib/IconBullet/IconBullet';
 export * from './lib/BulletList/BulletList';
-export * from './lib/DatePicker/DatePicker';
 export * from './lib/RadioButton/RadioButton';
 
 // Context

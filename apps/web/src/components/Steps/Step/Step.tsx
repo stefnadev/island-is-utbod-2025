@@ -23,6 +23,6 @@ export const Step = ({ number, ...props }: { number: number } & StepProps) => {
     case 4:
       return <YfirlitStep {...props} />;
     default:
-      <></>;
+      return <></>;
   }
 };

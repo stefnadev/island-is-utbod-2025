@@ -48,7 +48,10 @@ export const ApplicationHeader = () => {
                   items={[
                     {
                       onClick: async () => {
-                        //
+                        await fetch('/api/logout', {
+                          credentials: 'include',
+                        });
+                        window.location.href = '/';
                       },
                       title: 'Útskrá',
                     },

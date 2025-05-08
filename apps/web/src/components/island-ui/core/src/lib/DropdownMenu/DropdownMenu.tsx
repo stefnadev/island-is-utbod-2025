@@ -40,7 +40,6 @@ export interface DropdownMenuProps {
    */
   icon?: ButtonProps['icon'];
   iconType?: ButtonProps['iconType'];
-  disclosure?: ReactElement;
   menuClassName?: string;
   fixed?: boolean;
   openOnHover?: boolean;
@@ -56,7 +55,6 @@ export const DropdownMenu = ({
   iconType,
   loading,
   disabled,
-  disclosure,
   menuClassName,
   fixed = false,
   openOnHover = false,
@@ -90,11 +88,7 @@ export const DropdownMenu = ({
   });
   return (
     <>
-      {disclosure ? (
-        <MenuButton {...menu} {...disclosure.props} {...hoverProps}>
-          {(disclosureProps) => React.cloneElement(disclosure, disclosureProps)}
-        </MenuButton>
-      ) : (
+      {
         <MenuButton
           as={Button}
           variant="utility"
@@ -107,7 +101,7 @@ export const DropdownMenu = ({
         >
           {title}
         </MenuButton>
-      )}
+      }
       <Menu
         {...menu}
         aria-label={menuLabel}

@@ -2,7 +2,6 @@ import { StepProps } from '../Step/Step';
 import {
   Box,
   Button,
-  DatePicker,
   RadioButton,
   Stack,
   Text,
@@ -83,18 +82,6 @@ export const VinnumarkadurStep = ({
     <Text marginTop={4} marginBottom={2} variant="h3">
       Hvenær lýkur uppsagnarfresti
     </Text>
-    <Box marginY={4}>
-      <DatePicker
-        label="Dagsetning"
-        locale="is"
-        placeholderText="Veldu dagsetningu"
-        selected={new Date(formData.lokUppsagnarfrests)}
-        required
-        handleChange={(date: { toISOString: () => any }) =>
-          setFormData({ ...formData, lokUppsagnarfrests: date.toISOString() })
-        }
-      />
-    </Box>
     <Text marginTop={4} marginBottom={2} variant="h3">
       Ástæða atvinnuleysis
     </Text>

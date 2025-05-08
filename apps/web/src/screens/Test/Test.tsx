@@ -44,7 +44,6 @@ export const Test: NextPage = () => {
   const [savedAt, setSavedAt] = useState(new Date());
   const [lastChanged, setLastChanged] = useState<Date | null>(null);
   const [saveState, setSaveState] = useState('saved');
-  const [concent, setConcent] = useState(false);
 
   const setFormData = (data: any) => {
     _setFormData(data);
@@ -54,15 +53,14 @@ export const Test: NextPage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (saveState === 'changed') {
-        console.log(lastChanged);
-        /*if (Date.now() - lastChanged.getTime() > 3000) {
-          fetch('/api/save', {
-            method: 'POST',
-            body: JSON.stringify({ ...formData, step: currentStep }),
-          });
+      if (saveState === 'changed' && lastChanged !== null) {
+        if (Date.now() - lastChanged.getTime() > 3000) {
+          // fetch('/api/save', {
+          //   method: 'POST',
+          //   body: JSON.stringify({ ...formData, step: currentStep }),
+          // });
           setSaveState('saving');
-        }*/
+        }
       }
       if (saveState === 'saving') {
         setSaveState('saved');
@@ -83,10 +81,7 @@ export const Test: NextPage = () => {
   );
 
   const nextStep = () => {
-    if (currentStep === 4) {
-    } else {
-      setCurrentStep(currentStep + 1);
-    }
+    setCurrentStep(currentStep + 1);
     setSaveState('changed');
     setLastChanged(new Date());
   };
@@ -99,7 +94,7 @@ export const Test: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Ísland.is | Umsókn um atvinnuleysisbætur</title>
+        <title>Skattframtal</title>
       </Head>
       <ApplicationHeader />
       {
@@ -155,14 +150,11 @@ export const Test: NextPage = () => {
                     >
                       <Box marginLeft={1} display="flex">
                         <Text variant="eyebrow">
-                          {saveState === 'saving' && 'Vista gögn'}
+                          {saveState === 'saving' && 'Vista gögn...'}
                           {savedAt &&
                             saveState !== 'saving' &&
                             'Drög vistuð ' + format(savedAt, 'HH:mm')}
                         </Text>
-                        {saveState === 'saving' && (
-                          <Box marginLeft={1}>Loader</Box>
-                        )}
                       </Box>
                       {saveState === 'saved' ? (
                         <Tag variant="darkerBlue">Vistað</Tag>
