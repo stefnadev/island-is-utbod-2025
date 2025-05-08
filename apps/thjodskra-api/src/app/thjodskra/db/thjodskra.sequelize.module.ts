@@ -9,7 +9,7 @@ import { User } from './models/user.model';
       host: process.env.DB_HOST,
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
-      database: 'thjodskra',
+      database: process.env.DB_DB,
       models: [User],
     }),
   ],
