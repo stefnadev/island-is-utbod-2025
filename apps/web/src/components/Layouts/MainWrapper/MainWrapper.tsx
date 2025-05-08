@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   Breadcrumbs,
+  Blockquote,
   LinkV2,
   Stack,
   Navigation,
@@ -39,33 +40,48 @@ export const MainWrapper = () => {
     href: '#',
     items: [
       {
-        title: 'Í stuttu máli',
+        title: 'Skattframtal',
         href: '/',
         active: router.asPath === '/',
       },
       {
-        title: 'Inneign',
+        title: 'Skattframtal barns',
         href: '/',
       },
 
       {
-        title: 'Skuld',
+        title: 'Verktakagreiðslur',
         href: '/',
       },
       {
-        title: 'Lagasafn',
+        title: 'Fasteignir',
         href: '/',
-        accordion: true,
-        items: [{ title: 'Item 1' }, { title: 'Item 2' }, { title: 'Item 3' }],
+      },
+      {
+        title: 'Erlendar tekjur',
+        href: '/',
+      },
+      {
+        title: 'Leigutekjur',
+        href: '/',
+      },
+      {
+        title: 'Útreikningur og niðurstaða',
+        href: '/',
+      },
+      {
+        title: 'Mótmæla niðurstöðu',
+        href: '/',
       },
     ],
   };
 
   const relatedLinks = [
-    { title: 'Link item', url: '/' },
-    { title: 'Link item', url: '/' },
-    { title: 'Link item', url: '/' },
-    { title: 'Link item', url: '/' },
+    { title: 'Framtalsleiðbeiningar', url: '/' },
+    { title: 'Rafræn skilríki og veflyklar', url: '/' },
+    { title: 'Niðurstöður álagningar', url: '/' },
+    { title: 'Álagningarseðill og forsendur', url: '/' },
+    { title: 'Atvinnurekstur', url: '/' },
   ];
   const sidebarContent = (
     <Sticky>
@@ -181,50 +197,50 @@ export const MainWrapper = () => {
             og stofnanir.
           </Text>
           <ProcessEntry
-            processTitle="Framtal 2025"
+            processTitle="Skattframtal fyrir árið 2025"
             processLink="/skattframtol/2025"
             buttonText="Opna"
             newTab={false}
           />
           <Text>Þú þarft að skila framtali ef þú:</Text>
-          <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-            <li>
-              <Text>Fékkst íslenskar tekjur/tekjur á Íslandi.</Text>
-            </li>
-            <li>
-              <Text>Ert 16 ára eða eldri.</Text>
-            </li>
+
+          <ul
+            style={{
+              listStyleType: 'disc',
+              paddingLeft: '20px',
+              color: 'red',
+            }}
+          >
+            <Stack space={1}>
+              <li>
+                <Text>Fékkst íslenskar tekjur/tekjur á Íslandi.</Text>
+              </li>
+              <li>
+                <Text>Ert 16 ára eða eldri.</Text>
+              </li>
+            </Stack>
           </ul>
-          <Stack space={1}>
-            <Text>
-              Í skattframtalið eru settar tekjur og eignir fyrir árið á undan.
-            </Text>
-            <Text>
-              Dæmi: Skattframtal sem þú skilar árið 2024 er fyrir tekjur á
-              tímabilinu janúar- desember 2023.
-            </Text>
+
+          <Stack space={4}>
+            <Stack space={1}>
+              <Text>
+                Í skattframtalið eru settar tekjur og eignir fyrir árið á undan.
+              </Text>
+              <Text>
+                Dæmi: Skattframtal sem þú skilar árið 2024 er fyrir tekjur á
+                tímabilinu janúar- desember 2023.
+              </Text>
+            </Stack>
+            <Blockquote>
+              <Text color="black" fontWeight="medium">
+                Opnað verður fyrir rafræn skil á skattframtölum 27.febrúar 2026.
+              </Text>
+            </Blockquote>
+
+            <Text variant="h2">Ferlið við að skila skattframtali</Text>
           </Stack>
-          <Stack space={1}>
-            <Text fontWeight="semiBold">Fyrsta skattframtalið</Text>
-            <Text>
-              Þú skilar fyrst skattframtali árið eftir að þú verður 16 ára.
-            </Text>
-            <Text>
-              Dæmi: Ef þú verður 16 ára árið 2025 færðu tilkynningu snemma á
-              árinu 2026 um að framtalið þitt sé opið. Þá sendir þú framtal
-              fyrir tekjur ársins 2025.
-            </Text>
-          </Stack>
-          <Stack space={1}>
-            <Text fontWeight="semiBold">Börn</Text>
-            <Text>
-              Framtali barns sem er yngra en 18 ára er skilað með framtali
-              framfæranda.
-            </Text>
-          </Stack>
-          <Text variant="h2">Ferlið við að skila framtali</Text>
           <Text variant="h3">1. Opna skattframtalið</Text>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Tilkynning frá Skattinum</Text>
             <Text>
               Skatturinn opnar fyrir framtöl. Þegar þau eru opin færðu
@@ -232,7 +248,7 @@ export const MainWrapper = () => {
               eða mars. Þá færð þú líka að vita skilafrestinn á framtalinu.
             </Text>
           </Stack>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Rafræn skilríki</Text>
             <Text>
               Til að komast inn í framtalið þarft þú að hafa rafræn skilríki.
@@ -243,11 +259,18 @@ export const MainWrapper = () => {
               fengið veflykilinn sendan í heimabanka eða með pósti á lögheimili
               þitt.
             </Text>
-            <Text>Ef þú ert yngri en 18 ára</Text>
-            <Text>Upplýsingar um rafræn skilríki barna undir 18 ára.</Text>
+            <Text variant="h4">Ef þú ert yngri en 18 ára</Text>
+            <LinkV2
+              href={''}
+              underline="small"
+              underlineVisibility="always"
+              color="blue400"
+            >
+              Upplýsingar um rafræn skilríki barna undir 18 ára.
+            </LinkV2>
           </Stack>
           <Text variant="h3">2. Fara yfir og breyta</Text>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text>
               Þegar þú getur opnað framtalið þitt getur þú sett inn upplýsingar
               eða breytt því sem er búið að setja inn sjálfkrafa.
@@ -259,7 +282,7 @@ export const MainWrapper = () => {
               og koma að því aftur.
             </Text>
           </Stack>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Launafólk</Text>
             <Text>
               Fyrir launafólk eru flestar upplýsingar forskráðar á
@@ -268,7 +291,7 @@ export const MainWrapper = () => {
               einstaka verktakagreiðslur.
             </Text>
           </Stack>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Verktakar</Text>
             <Text>
               Fyrir verktaka er ekki búið að skrá upplýsingar um tekjur
@@ -277,7 +300,7 @@ export const MainWrapper = () => {
             </Text>
           </Stack>
           <Text variant="h3">3. Prófa og senda</Text>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Villuprófun</Text>
             <Text>
               Þú getur athugað hvort allt sé rétt fyllt út áður en þú sendir
@@ -286,7 +309,7 @@ export const MainWrapper = () => {
               Leiðbeiningar eru hér:
             </Text>
           </Stack>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Vísbending um niðurstöðu </Text>
             <Text>
               Það er líka hægt að fá bráðabirgðaútreikning. Það þýðir að þú
@@ -296,7 +319,7 @@ export const MainWrapper = () => {
               réttar.
             </Text>
           </Stack>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Senda framtalið</Text>
             <Text>
               Þegar þú hefur prófað og leiðrétt villur sem koma upp er hægt að
@@ -306,31 +329,39 @@ export const MainWrapper = () => {
             </Text>
           </Stack>
           <Text variant="h3">4. Fá niðurstöðu</Text>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text>
               Um mánaðarmótin maí og júní færð þú tilkynningu með hnippi eða í
               tölvupósti um að niðurstöður séu tilbúnar.
             </Text>
           </Stack>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text variant="h4">Álagningarseðill</Text>
             <Text>
               Niðurstöðurnar koma fram á því sem er kallað álagningarseðill. Þú
               sérð hann inni á skattur.is eða á Ísland.is.
             </Text>
           </Stack>
-          <Stack space={1}>
+          <Stack space={2}>
             <Text>Útreikningur getur sýnt að: </Text>
-            <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-              <li>
-                <Text>allar greiðslur séu í lagi, </Text>
-              </li>
-              <li>
-                <Text>þú eigir inneign,</Text>
-              </li>
-              <li>
-                <Text>þú skuldir pening.</Text>
-              </li>
+            <ul
+              style={{
+                listStyleType: 'disc',
+                paddingLeft: '20px',
+                color: 'red',
+              }}
+            >
+              <Stack space={1}>
+                <li>
+                  <Text>allar greiðslur séu í lagi, </Text>
+                </li>
+                <li>
+                  <Text>þú eigir inneign,</Text>
+                </li>
+                <li>
+                  <Text>þú skuldir pening.</Text>
+                </li>
+              </Stack>
             </ul>
           </Stack>
         </Stack>
