@@ -8,8 +8,18 @@ import {
   Text,
 } from '@/components/island-ui/core/src';
 import type { StepProps } from './types';
+import { parseSalary } from '../../../utils/numberFormat';
 
-export const IncomeStep = ({ previousStep, nextStep }: StepProps) => {
+export const IncomeStep = ({
+  formData,
+  setFormData,
+  previousStep,
+  nextStep,
+}: StepProps) => {
+  const launatekjur1 = parseSalary(formData.launatekjur1 ?? '9.360.000');
+  const launatekjur2 = parseSalary(formData.launatekjur2 ?? '900.000');
+
+  const totalLaunatekjur = launatekjur1 + launatekjur2;
   return (
     <Box paddingTop={3}>
       <Stack space={3}>
@@ -42,11 +52,14 @@ export const IncomeStep = ({ previousStep, nextStep }: StepProps) => {
               </GridColumn>
               <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
                 <Input
-                  name="launatekjur"
+                  name="launatekjur1"
                   size="xs"
                   label="Launatekjur"
-                  value="9.360.000"
-                  disabled
+                  defaultValue="9.360.000"
+                  value={formData.launatekjur1}
+                  onChange={(e) =>
+                    setFormData({ ...formData, launatekjur1: e.target.value })
+                  }
                 />
               </GridColumn>
             </GridRow>
@@ -71,11 +84,15 @@ export const IncomeStep = ({ previousStep, nextStep }: StepProps) => {
               </GridColumn>
               <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
                 <Input
-                  name="launatekjur"
+                  name="launatekjur2"
                   size="xs"
                   label="Launatekjur"
-                  value="900.000"
-                  disabled
+                  defaultValue="900.000"
+                  value={formData.launatekjur2}
+                  type="number"
+                  onChange={(e) =>
+                    setFormData({ ...formData, launatekjur2: e.target.value })
+                  }
                 />
               </GridColumn>
             </GridRow>
@@ -88,7 +105,7 @@ export const IncomeStep = ({ previousStep, nextStep }: StepProps) => {
                 name="samtals"
                 size="xs"
                 label="Samtals launatekjur"
-                value="10.260.000"
+                value={totalLaunatekjur.toLocaleString('is-IS')}
                 disabled
               />
             </GridColumn>
