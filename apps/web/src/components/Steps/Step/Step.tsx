@@ -1,8 +1,8 @@
-import { IncomeStep } from '@/screens/Test/steps/IncomeStep';
+import { IncomeStep } from '@/screens/TaxReportDetails/steps/IncomeStep';
 import { GagnasofnunStep, PersonuupplysingarStep } from '../';
-import { AssetStep } from '@/screens/Test/steps/AssetStep';
-import { DebtStep } from '@/screens/Test/steps/DebtStep';
-import { OverviewStep } from '@/screens/Test/steps/OverviewStep';
+import { AssetStep } from '@/screens/TaxReportDetails/steps/AssetStep';
+import { DebtStep } from '@/screens/TaxReportDetails/steps/DebtStep';
+import { OverviewStep } from '@/screens/TaxReportDetails/steps/OverviewStep';
 
 export interface StepProps {
   formData: any;

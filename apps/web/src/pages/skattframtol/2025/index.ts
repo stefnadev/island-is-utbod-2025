@@ -1,3 +1,3 @@
-import { Test } from '@/screens/Test/Test';
+import { TaxReportDetails } from '@/screens/TaxReportDetails/TaxReportDetails';
 
-export default Test;
+export default TaxReportDetails;
