@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Box, Button, Input, Text, LinkV2 } from '../island-ui/core/src/index';
+import { Box, Text, LinkV2, Logo } from '../island-ui/core/src/index';
 import * as styles from './LoginForm.css';
+import LoginStart from './LoginStates/LoginStart';
 
 interface LoginFormProps {
   errorMessage?: string;
@@ -18,10 +19,12 @@ export const LoginForm = ({
         <div className={styles.loginFormWidth}>
           <form className={styles.text} action="/api/login" method="get">
             <Box border="standard" borderRadius="large" paddingTop={8}>
-              <div className={styles.logo}>Mynd hérna</div>
+              <div className={styles.logo}>
+                <Logo width={160} />
+              </div>
 
               <Box
-                marginBottom={10}
+                marginBottom={5}
                 textAlign="center"
                 marginLeft={2}
                 marginRight={2}
@@ -35,63 +38,39 @@ export const LoginForm = ({
                 <Text variant={'eyebrow'} fontWeight="light" marginBottom={1}>
                   á þjónustuvef Skattsins
                 </Text>
-
-                <Input
-                  name="phonenumber"
-                  inputMode="numeric"
-                  type="tel"
-                  label="Símanúmer"
-                  backgroundColor="blue"
-                  placeholder="000-0000"
-                  size="sm"
-                  defaultValue={initialPhonenumber}
+                <LoginStart
                   errorMessage={errorMessage}
+                  initialPhonenumber={initialPhonenumber}
                 />
-
-                <Button id="submit" size="small" fluid type="submit">
-                  Auðkenna
-                </Button>
-                <Box
-                  className={styles.dividerBackground}
-                  marginTop={4}
-                  marginBottom={4}
-                >
-                  <div className={styles.dividerText}>
-                    <Text variant="eyebrow">Eða skráðu þig inn með</Text>
-                  </div>
-                </Box>
-                <Box marginBottom={2}>
-                  <Button
-                    id="audkennisappid"
-                    variant="ghost"
-                    size="small"
-                    fluid
-                  >
-                    Auðkennisappinu
-                  </Button>
-                </Box>
-                <Button
-                  id="skilriki-a-korti"
-                  variant="ghost"
-                  size="small"
-                  fluid
-                >
-                  Skilríki á korti
-                </Button>
               </Box>
             </Box>
           </form>
-          <Box display="flex" justifyContent="spaceBetween">
-            <LinkV2 href={''} color="blue600">
-              Skilmálar
+          <Box
+            display="flex"
+            justifyContent="spaceBetween"
+            marginTop={1}
+            marginX={1}
+          >
+            <LinkV2 href={''}>
+              <Text variant="small" color="blue600" fontWeight="medium">
+                Skilmálar
+              </Text>
             </LinkV2>
             <Box display="flex">
-              <LinkV2 href={''} color="blue600">
-                English
+              <LinkV2 href={''}>
+                <Text variant="small" color="blue600" fontWeight="medium">
+                  English
+                </Text>
               </LinkV2>
-              |
-              <LinkV2 href={''} color="blue600">
-                Aðstoð
+              <Box marginX={1}>
+                <Text variant="small" color="blue600">
+                  |
+                </Text>
+              </Box>
+              <LinkV2 href={''}>
+                <Text variant="small" color="blue600" fontWeight="medium">
+                  Aðstoð
+                </Text>
               </LinkV2>
             </Box>
           </Box>

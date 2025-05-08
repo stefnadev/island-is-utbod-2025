@@ -1,18 +1,23 @@
-import { Text } from '@/components/island-ui/core/src';
 import Head from 'next/head';
+import { Text } from '@/components/island-ui/core/src';
+import type { GetTaxReportDetailsQuery } from '@/grapql/graphql';
 
 interface TaxReportDetailsProps {
-  year: string;
+  taxReportDetails: NonNullable<GetTaxReportDetailsQuery['taxReportDetails']>;
 }
 
-export const TaxReportDetails = ({ year }: TaxReportDetailsProps) => {
-  const title = `Skattframtal ${year}`;
+export const TaxReportDetails = ({
+  taxReportDetails,
+}: TaxReportDetailsProps) => {
+  const title = `Skattframtal ${taxReportDetails.id}`;
   return (
     <div>
       <Head>
         <title>{title}</title>
       </Head>
       <Text variant="h1">{title}</Text>
+      {taxReportDetails.status}
+      {taxReportDetails.year}
     </div>
   );
 };
