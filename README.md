@@ -50,5 +50,5 @@ Nest.js REST service
 To run locally:
 
 ```sh
-yarn nx run skattur-api:serve
+yarn nx run thjodskra-api:serve
 ```
