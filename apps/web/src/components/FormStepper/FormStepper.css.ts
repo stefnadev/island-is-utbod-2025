@@ -27,29 +27,6 @@ export const StepNumber = style({
   }),
 });
 
-export const Line = style({
-  position: 'absolute',
-  height: '40px',
-  width: '2px',
-  background: '#3abd9',
-  left: '15px',
-  top: '-20px',
-  ...themeUtils.responsiveStyle({
-    xs: {
-      display: 'none',
-    },
-    sm: {
-      display: 'none',
-    },
-    md: {
-      display: 'none',
-    },
-    lg: {
-      display: 'block',
-    },
-  }),
-});
-
 export const StepWrapper = style({
   marginTop: '32px',
 });

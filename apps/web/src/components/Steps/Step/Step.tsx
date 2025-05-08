@@ -1,9 +1,8 @@
-import {
-  GagnasofnunStep,
-  PersonuupplysingarStep,
-  VinnumarkadurStep,
-  YfirlitStep,
-} from '../';
+import { IncomeStep } from '@/screens/Test/steps/IncomeStep';
+import { GagnasofnunStep, PersonuupplysingarStep } from '../';
+import { AssetStep } from '@/screens/Test/steps/AssetStep';
+import { DebtStep } from '@/screens/Test/steps/DebtStep';
+import { OverviewStep } from '@/screens/Test/steps/OverviewStep';
 
 export interface StepProps {
   formData: any;
@@ -19,9 +18,13 @@ export const Step = ({ number, ...props }: { number: number } & StepProps) => {
     case 2:
       return <PersonuupplysingarStep {...props} />;
     case 3:
-      return <VinnumarkadurStep {...props} />;
+      return <IncomeStep {...props} />;
     case 4:
-      return <YfirlitStep {...props} />;
+      return <AssetStep {...props} />;
+    case 5:
+      return <DebtStep {...props} />;
+    case 6:
+      return <OverviewStep {...props} />;
     default:
       return <></>;
   }

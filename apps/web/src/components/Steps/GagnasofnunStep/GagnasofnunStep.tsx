@@ -1,5 +1,5 @@
 import { StepProps } from '../Step/Step';
-import { Box, Button, Checkbox, Text } from '../../island-ui/core/src';
+import { Box, Button, Checkbox, Stack, Text } from '../../island-ui/core/src';
 
 export const GagnasofnunStep = ({
   formData,
@@ -13,7 +13,34 @@ export const GagnasofnunStep = ({
         Eftirfarandi gögn um þig verða sótt rafrænt til að einfalda
         umsóknarferlið.
       </Text>
-      <Box paddingY={2}></Box>
+      <Box paddingY={2}>
+        <Stack space={3}>
+          <Box>
+            <Text variant="h5" color="blue400">
+              Skatturinn
+            </Text>
+            <Text>Upplýsingar um tekjur, eignir og skuldir.</Text>
+          </Box>
+          <Box>
+            <Text variant="h5" color="blue400">
+              Húsnæðis- og mannvirkjastofnun
+            </Text>
+            <Text>Upplýsingar um mat fasteigna í lok árs.</Text>
+          </Box>
+          <Box>
+            <Text variant="h5" color="blue400">
+              Þjóðskrá
+            </Text>
+            <Text>Upplýsingar um þig og fjölskylduhagi þína.</Text>
+          </Box>
+          <Box>
+            <Text variant="h5" color="blue400">
+              Samgöngustofa
+            </Text>
+            <Text>Upplýsingar um ökutæki sem skráð eru á þig.</Text>
+          </Box>
+        </Stack>
+      </Box>
     </Box>
     <Box
       background="blue100"

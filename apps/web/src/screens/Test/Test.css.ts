@@ -13,14 +13,11 @@ export const StyledPageWrapper = style({
 
 export const StyledSavedWrapper = style({
   ...themeUtils.responsiveStyle({
-    md: {
-      position: 'fixed',
-      bottom: 0,
-      right: 0,
-      width: '250px',
+    xs: {
+      paddingTop: '24px',
     },
-    lg: {
-      position: 'unset',
+    md: {
+      width: '250px',
     },
   }),
 });

@@ -7,6 +7,7 @@ import {
   Text,
   Hidden,
 } from '@/components/island-ui/core/src';
+import * as styles from './ApplicationHeader.css';
 
 export const ApplicationHeader = () => {
   return (
@@ -32,9 +33,8 @@ export const ApplicationHeader = () => {
                   </Hidden>
                 </Link>
                 <div
+                  className={styles.textContainer}
                   style={{
-                    marginLeft: 32,
-                    paddingLeft: 32,
                     borderLeft: '2px solid #f8f5fa',
                   }}
                 >
@@ -44,7 +44,6 @@ export const ApplicationHeader = () => {
               </Box>
               <Box display="flex" alignItems="center" flexWrap="nowrap">
                 <DropdownMenu
-                  icon="menu"
                   items={[
                     {
                       onClick: async () => {

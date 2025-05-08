@@ -1,11 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { is } from 'date-fns/locale/is';
 import {
   Box,
+  Button,
   GridColumn,
   GridContainer,
   GridRow,
+  Stack,
   Tag,
   Text,
 } from '../../components/island-ui/core/src';
@@ -15,22 +18,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { format } from 'date-fns';
 
 import * as styles from './Test.css';
-
-const steps = [
-  { title: 'Gagnasöfnun', number: 1 },
-  { title: 'Persónu\u00ADupplýsingar', number: 2 },
-  { title: 'Staða á vinnumarkaði', number: 3 },
-  { title: 'Starfsóskir og starfsgeta', number: 4 },
-  { title: 'Reynsla og þekking', number: 5 },
-  { title: 'Greiðslu\u00ADupplýsingar', number: 6 },
-  { title: 'Yfirlit umsóknar', number: 7 },
-];
+import { stepTitles } from './steps/constants';
 
 export const Test: NextPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
 
-  // TODO: save formData to session periodically, display notification if mismatch was detected
-  // TODO: on window close detect mismatch in session vs formData and display prompt
   const [formData, _setFormData] = useState({
     gagnasofnun: false,
     orlof: false,
@@ -39,6 +31,8 @@ export const Test: NextPage = () => {
     lokUppsagnarfrests: new Date(2021, 7, 15).toISOString(),
     astaedaAtvinnuleysis: '',
     salary: 0,
+    email: 'jokull.thordarson@email.is',
+    mobilephone: '772-8391',
   });
 
   const [savedAt, setSavedAt] = useState(new Date());
@@ -73,10 +67,7 @@ export const Test: NextPage = () => {
   }, [saveState, lastChanged, currentStep]);
 
   const step = useMemo(
-    () =>
-      steps.find(
-        (step) => step.number === (currentStep === 4 ? 7 : currentStep),
-      ),
+    () => stepTitles.find((step) => step.number === currentStep),
     [currentStep],
   );
 
@@ -90,6 +81,8 @@ export const Test: NextPage = () => {
     setSaveState('changed');
     setLastChanged(new Date());
   };
+
+  const onFinalStep = !(step && step.number <= stepTitles.length);
 
   return (
     <>
@@ -115,59 +108,87 @@ export const Test: NextPage = () => {
                       marginRight={[0, 0, 2]}
                       borderRadius="large"
                     >
-                      <Text variant="h2">{step?.title}</Text>
-                      <Step
-                        number={currentStep}
-                        formData={formData}
-                        setFormData={setFormData}
-                        nextStep={nextStep}
-                        previousStep={previousStep}
-                      />
+                      {!onFinalStep ? (
+                        <>
+                          <Text variant="h2">{step?.title}</Text>
+                          <Step
+                            number={currentStep}
+                            formData={formData}
+                            setFormData={setFormData}
+                            nextStep={nextStep}
+                            previousStep={previousStep}
+                          />
+                        </>
+                      ) : (
+                        <Stack space={3}>
+                          <Text variant="h2">Skattframtal móttekið</Text>
+                          <Text>
+                            Skattframtal 2025 var skilað{' '}
+                            {format(new Date(), 'd. MMMM yyyy', {
+                              locale: is,
+                            })}{' '}
+                            klukkan{' '}
+                            {format(new Date(), 'HH:MM', {
+                              locale: is,
+                            })}
+                          </Text>
+                          <Box display="flex" justifyContent="flexEnd">
+                            <Button
+                              onClick={() => {
+                                window.location.href = '/';
+                              }}
+                              icon="arrowForward"
+                            >
+                              Skoða upplýsingasíðu
+                            </Button>
+                          </Box>
+                        </Stack>
+                      )}
                     </Box>
                   </div>
                 </GridColumn>
                 <GridColumn span={['12/12', '12/12', '3/12']}>
                   <Box display={['none', 'none', 'block']}>
                     <Text variant="h4" marginTop={4}>
-                      Umsókn um atvinnuleysisbætur
+                      Skattframtal 2025
                     </Text>
                   </Box>
-                  <FormStepper
-                    steps={steps}
-                    current={currentStep === 4 ? 7 : currentStep}
-                  />
-                  <div className={styles.StyledSavedWrapper}>
-                    <Box
-                      marginTop={[0, 0, 4]}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="spaceBetween"
-                      padding={2}
-                      borderRadius="large"
-                      borderWidth="standard"
-                      borderColor="blue200"
-                      background="white"
-                    >
-                      <Box marginLeft={1} display="flex">
-                        <Text variant="eyebrow">
-                          {saveState === 'saving' && 'Vista gögn...'}
-                          {savedAt &&
-                            saveState !== 'saving' &&
-                            'Drög vistuð ' + format(savedAt, 'HH:mm')}
-                        </Text>
+                  <FormStepper steps={stepTitles} current={currentStep} />
+                  {!onFinalStep && (
+                    <div className={styles.StyledSavedWrapper}>
+                      <Box
+                        marginTop={[0, 0, 4]}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="spaceBetween"
+                        padding={2}
+                        borderRadius="large"
+                        borderWidth="standard"
+                        borderColor="blue200"
+                        background="white"
+                      >
+                        <Box marginLeft={1} display="flex">
+                          <Text variant="eyebrow">
+                            {saveState === 'saving' && 'Vista gögn...'}
+                            {savedAt &&
+                              saveState !== 'saving' &&
+                              'Drög vistuð ' + format(savedAt, 'HH:mm')}
+                          </Text>
+                        </Box>
+                        {saveState === 'saved' ? (
+                          <Tag variant="darkerBlue">Vistað</Tag>
+                        ) : (
+                          <Tag variant="red">Breytt</Tag>
+                        )}
                       </Box>
-                      {saveState === 'saved' ? (
-                        <Tag variant="darkerBlue">Vistað</Tag>
-                      ) : (
-                        <Tag variant="red">Breytt</Tag>
-                      )}
-                    </Box>
-                  </div>
+                    </div>
+                  )}
+
                   <Box marginTop={6} display={['none', 'none', 'block']}>
                     <Image
-                      width={80}
-                      height={80}
-                      src="/images/merki-skatturinn.png"
+                      width={300}
+                      height={300}
+                      src="/images/merki-skatturinn-med-texta.svg"
                       alt=""
                     />
                   </Box>

@@ -19,21 +19,18 @@ const Step = ({
       height: 64,
       position: 'relative',
     }}
-    display={completed ? ['none', 'none', 'flex'] : 'flex'}
   >
-    {number > 1 && (
-      <div
-        className={styles.Line}
-        style={{ background: current || completed ? '#6a2ea0' : undefined }}
-      />
-    )}
     <div
       className={styles.StepNumber}
       style={{ background: current || completed ? '#6a2ea0' : undefined }}
     >
-      {completed ? <Icon type="check" /> : number}
+      {completed ? <Icon type="check" color="white" width={16} /> : number}
     </div>
-    <Text variant="default" fontWeight={current ? 'semiBold' : 'light'}>
+    <Text
+      truncate
+      variant="default"
+      fontWeight={current ? 'semiBold' : 'light'}
+    >
       {title}
     </Text>
   </Box>
