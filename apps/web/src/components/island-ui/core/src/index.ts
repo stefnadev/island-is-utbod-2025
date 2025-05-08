@@ -19,6 +19,11 @@ export * from './lib/Navigation/Navigation';
 export * from './lib/Breadcrumbs/Breadcrumbs';
 export * from './lib/Hyphen/Hyphen';
 export * from './lib/Checkbox/Checkbox';
+export * from './lib/Tag/Tag';
+export * from './lib/Bullet/Bullet';
+export * from './lib/IconBullet/IconBullet';
+export * from './lib/BulletList/BulletList';
+export * from './lib/RadioButton/RadioButton';
 
 // Context
 export * from './lib/context';
@@ -29,3 +34,5 @@ export type { ButtonProps, ButtonSizes, ButtonTypes } from './lib/Button/types';
 export type { ResponsiveProp } from '../utils/responsiveProp';
 
 export { IconDeprecated } from './lib/Icon/Icon';
+export * from './lib/ContentBlock/ContentBlock';
+export * from './lib/DropdownMenu/DropdownMenu';
