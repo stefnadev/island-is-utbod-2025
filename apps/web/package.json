@@ -24,8 +24,7 @@
     "react-dom": "19.0.0",
     "react-keyed-flatten-children": "^5.0.0",
     "react-select": "^5.10.1",
-    "react-use": "^17.6.0",
-    "styled-components": "^6.1.17"
+    "react-use": "^17.6.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.5",

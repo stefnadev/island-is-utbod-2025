@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import {
   Box,
   GridColumn,
@@ -8,12 +9,12 @@ import {
   Tag,
   Text,
 } from '../../components/island-ui/core/src';
-import { FormStepper, Header, Step } from '../../components';
+import { FormStepper, Step, ApplicationHeader } from '../../components';
 
 import { useEffect, useMemo, useState } from 'react';
-import styled from 'styled-components';
-import { useRouter } from 'next/router';
 import { format } from 'date-fns';
+
+import * as styles from './Test.css';
 
 const steps = [
   { title: 'Gagnasöfnun', number: 1 },
@@ -25,42 +26,7 @@ const steps = [
   { title: 'Yfirlit umsóknar', number: 7 },
 ];
 
-const StyledPageWrapper = styled.div`
-  background: #f8f5fa;
-  min-height: 100vh;
-  padding-top: 130px;
-
-  @media (max-width: 767px) {
-    padding-top: 80px;
-  }
-`;
-
-const StyledGridRow = styled(GridRow)`
-  div& {
-    @media (max-width: 767px) {
-      display: block;
-    }
-  }
-`;
-
-const StyledSavedWrapper = styled.div`
-  @media (max-width: 767px) {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 250px;
-  }
-`;
-
-const StyledMainWrapper = styled.div`
-  @media (max-width: 767px) {
-    margin: 0 -30px;
-  }
-`;
-
 export const Test: NextPage = () => {
-  const router = useRouter();
-
   const [currentStep, setCurrentStep] = useState(1);
 
   // TODO: save formData to session periodically, display notification if mismatch was detected
@@ -135,18 +101,18 @@ export const Test: NextPage = () => {
       <Head>
         <title>Ísland.is | Umsókn um atvinnuleysisbætur</title>
       </Head>
-      <Header />
+      <ApplicationHeader />
       {
-        <StyledPageWrapper>
+        <div className={styles.StyledPageWrapper}>
           <GridContainer>
-            <StyledGridRow>
+            <GridRow>
               <Box
                 display="flex"
                 flexDirection={['columnReverse', 'columnReverse', 'row']}
                 flexGrow={1}
               >
                 <GridColumn span={['12/12', '12/12', '9/12']}>
-                  <StyledMainWrapper>
+                  <div className={styles.StyledMainWrapper}>
                     <Box
                       background="white"
                       paddingY={8}
@@ -163,7 +129,7 @@ export const Test: NextPage = () => {
                         previousStep={previousStep}
                       />
                     </Box>
-                  </StyledMainWrapper>
+                  </div>
                 </GridColumn>
                 <GridColumn span={['12/12', '12/12', '3/12']}>
                   <Box display={['none', 'none', 'block']}>
@@ -175,7 +141,7 @@ export const Test: NextPage = () => {
                     steps={steps}
                     current={currentStep === 4 ? 7 : currentStep}
                   />
-                  <StyledSavedWrapper>
+                  <div className={styles.StyledSavedWrapper}>
                     <Box
                       marginTop={[0, 0, 4]}
                       display="flex"
@@ -204,15 +170,20 @@ export const Test: NextPage = () => {
                         <Tag variant="red">Breytt</Tag>
                       )}
                     </Box>
-                  </StyledSavedWrapper>
+                  </div>
                   <Box marginTop={6} display={['none', 'none', 'block']}>
-                    <img src="/image/merki-skattsins.png" alt="Skatturinn" />
+                    <Image
+                      width={80}
+                      height={80}
+                      src="/images/merki-skatturinn.png"
+                      alt=""
+                    />
                   </Box>
                 </GridColumn>
               </Box>
-            </StyledGridRow>
+            </GridRow>
           </GridContainer>
-        </StyledPageWrapper>
+        </div>
       }
     </>
   );

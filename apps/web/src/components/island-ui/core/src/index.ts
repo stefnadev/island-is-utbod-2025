@@ -35,3 +35,5 @@ export type { ButtonProps, ButtonSizes, ButtonTypes } from './lib/Button/types';
 export type { ResponsiveProp } from '../utils/responsiveProp';
 
 export { IconDeprecated } from './lib/Icon/Icon';
+export * from './lib/ContentBlock/ContentBlock';
+export * from './lib/DropdownMenu/DropdownMenu';
