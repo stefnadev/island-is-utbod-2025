@@ -12,6 +12,7 @@
     "@vanilla-extract/next-plugin": "^2.4.10",
     "@vanilla-extract/recipes": "^0.5.5",
     "cookies-next": "^5.1.0",
+    "date-fns": "^4.1.0",
     "graphql": "^16.11.0",
     "hypher": "^0.2.5",
     "jsonwebtoken": "^9.0.2",
@@ -19,8 +20,10 @@
     "next": "~15.2.4",
     "react": "19.0.0",
     "react-animate-height": "^3.2.3",
+    "react-datepicker": "^8.3.0",
     "react-dom": "19.0.0",
     "react-keyed-flatten-children": "^5.0.0",
+    "react-select": "^5.10.1",
     "react-use": "^17.6.0"
   },
   "devDependencies": {

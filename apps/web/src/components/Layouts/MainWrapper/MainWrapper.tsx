@@ -39,7 +39,7 @@ export const MainWrapper = () => {
     href: '#',
     items: [
       {
-        title: 'Í stuttu máli ?',
+        title: 'Í stuttu máli',
         href: '/',
         active: router.asPath === '/',
       },
@@ -61,7 +61,7 @@ export const MainWrapper = () => {
     ],
   };
 
-  const relatedLinks: any[] = [
+  const relatedLinks = [
     { title: 'Link item', url: '/' },
     { title: 'Link item', url: '/' },
     { title: 'Link item', url: '/' },
@@ -182,14 +182,18 @@ export const MainWrapper = () => {
           </Text>
           <ProcessEntry
             processTitle="Framtal 2025"
-            processLink="/skattframtol"
+            processLink="/skattframtol/2025"
             buttonText="Opna"
             newTab={false}
           />
           <Text>Þú þarft að skila framtali ef þú:</Text>
           <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-            <li>Fékkst íslenskar tekjur/tekjur á Íslandi.</li>
-            <li>Ert 16 ára eða eldri.</li>
+            <li>
+              <Text>Fékkst íslenskar tekjur/tekjur á Íslandi.</Text>
+            </li>
+            <li>
+              <Text>Ert 16 ára eða eldri.</Text>
+            </li>
           </ul>
           <Stack space={1}>
             <Text>
@@ -318,9 +322,15 @@ export const MainWrapper = () => {
           <Stack space={1}>
             <Text>Útreikningur getur sýnt að: </Text>
             <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-              <li>allar greiðslur séu í lagi, </li>
-              <li>þú eigir inneign,</li>
-              <li>þú skuldir pening.</li>
+              <li>
+                <Text>allar greiðslur séu í lagi, </Text>
+              </li>
+              <li>
+                <Text>þú eigir inneign,</Text>
+              </li>
+              <li>
+                <Text>þú skuldir pening.</Text>
+              </li>
             </ul>
           </Stack>
         </Stack>

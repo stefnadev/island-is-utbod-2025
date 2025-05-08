@@ -1,5 +1,5 @@
 import { GetTaxReportDetailsDocument } from '@/grapql/graphql';
-import { TaxReportDetails } from '@/screens/TaxReportDetails/TaxReportDetails';
+import { TaxReportDetails } from '@/screens/TaxReportDetailsTest/TaxReportDetails';
 import { createApolloClient } from '@/utils/apolloClient';
 import { GetServerSideProps } from 'next';
 
