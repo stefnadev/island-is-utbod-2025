@@ -9,7 +9,7 @@ export const GagnasofnunStep = ({
 }: StepProps) => (
   <>
     <Box marginY={4}>
-      <Text marginY={2} variant="h3">
+      <Text marginY={2} variant="h4">
         Eftirfarandi gögn verða sótt rafrænt með þínu samþykki.
       </Text>
       <Box paddingY={2}>
