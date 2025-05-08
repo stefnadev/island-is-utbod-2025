@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { TaxReportsBasicCollection } from './dto/tax-report-basic';
 import { TaxReportDto, TaxReportStatus } from './dto/tax-report';
-import { TaxReportRepository } from './db/repositories/tax-report-repository';
+import { TaxReportRepository } from './db/repositories/tax-report.repository';
 import { IncomesMockService } from './mock/incomes.mock.service';
 import { AssetMockService } from './mock/assets.mock.service';
 import { DebtsMockService } from './mock/debts.mock.service';
