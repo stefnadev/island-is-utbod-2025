@@ -182,7 +182,7 @@ export const MainWrapper = () => {
           </Text>
           <ProcessEntry
             processTitle="Framtal 2025"
-            processLink="/skattframtol"
+            processLink="/skattframtol/2025"
             buttonText="Opna"
             newTab={false}
           />

@@ -154,7 +154,7 @@ export const Test: NextPage = () => {
                     </Text>
                   </Box>
                   <FormStepper steps={stepTitles} current={currentStep} />
-                  {!onFinalStep && (
+                  {!onFinalStep && step.number > 1 && (
                     <div className={styles.StyledSavedWrapper}>
                       <Box
                         marginTop={[0, 0, 4]}
