@@ -1,29 +1,29 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsNumber, IsString } from 'class-validator'
+import { IsArray, IsNumber, IsString } from 'class-validator';
 
 export class DebtDto {
-    @ApiProperty()
-    @IsString()
-    description!: string;
+  @ApiProperty()
+  @IsString()
+  description!: string;
 
-    @ApiProperty({
-        description: 'Vaxtagjöld',
-    })
-    @IsNumber()
-    interestCharges!: number;
+  @ApiProperty({
+    description: 'Vaxtagjöld',
+  })
+  @IsNumber()
+  interestCharges!: number;
 
-    @ApiProperty({
-        description: 'Eftirstöðvar skulda',
-    })
-    @IsNumber()
-    remainingDebtsAmount!: number;
+  @ApiProperty({
+    description: 'Eftirstöðvar skulda',
+  })
+  @IsNumber()
+  remainingDebtsAmount!: number;
 }
 
 export class DebtCollection {
-    @ApiProperty({
-        type: DebtDto, 
-        isArray: true,
-    })
-    @IsArray()
-    items!: DebtDto[];
+  @ApiProperty({
+    type: DebtDto,
+    isArray: true,
+  })
+  @IsArray()
+  items!: DebtDto[];
 }

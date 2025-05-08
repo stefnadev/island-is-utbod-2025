@@ -3,18 +3,18 @@ import { UnitCollection } from './unit';
 import { IsArray } from 'class-validator';
 
 export class CompensationDto {
-    @ApiProperty()
-    company!: string;
+  @ApiProperty()
+  company!: string;
 
-    @ApiProperty()
-    compensations!: UnitCollection;
+  @ApiProperty()
+  compensations!: UnitCollection;
 }
 
 export class CompensationCollection {
-    @ApiProperty({
-        type: CompensationDto, 
-        isArray: true,
-    })
-    @IsArray()
-    items!: CompensationDto[];
+  @ApiProperty({
+    type: CompensationDto,
+    isArray: true,
+  })
+  @IsArray()
+  items!: CompensationDto[];
 }

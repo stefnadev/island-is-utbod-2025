@@ -20,10 +20,10 @@ export class TaxReport extends Model {
   status!: string;
 
   @Column(DATE)
-  createdOn!: string;
+  override createdAt!: string;
 
   @Column(DATE)
-  modifiedOn?: string;
+  override updatedAt?: string;
 
   @HasOne(() => Incomes, { onDelete: 'cascade' })
   incomes?: Incomes;

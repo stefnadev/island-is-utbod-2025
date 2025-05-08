@@ -9,15 +9,15 @@ export class AssetsRepository {
     private assets: typeof Assets,
   ) {}
 
-  async findByTaxReport(taxReportId: string): Promise<Assets|null> {
+  async findByTaxReport(taxReportId: string): Promise<Assets | null> {
     return this.assets.findOne({
-        where: {
-            taxReportId,
-        },
+      where: {
+        taxReportId,
+      },
     });
   }
 
-  findOne(id: string): Promise<Assets|null> {
+  findOne(id: string): Promise<Assets | null> {
     return this.assets.findOne({
       where: {
         id,

@@ -9,15 +9,15 @@ export class IncomesRepository {
     private incomes: typeof Incomes,
   ) {}
 
-  async findByTaxReport(taxReportId: string): Promise<Incomes|null> {
+  async findByTaxReport(taxReportId: string): Promise<Incomes | null> {
     return this.incomes.findOne({
-        where: {
-            taxReportId,
-        },
+      where: {
+        taxReportId,
+      },
     });
   }
 
-  findOne(id: string): Promise<Incomes|null> {
+  findOne(id: string): Promise<Incomes | null> {
     return this.incomes.findOne({
       where: {
         id,
