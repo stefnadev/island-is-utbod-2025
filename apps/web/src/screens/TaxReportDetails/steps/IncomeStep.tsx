@@ -95,6 +95,88 @@ export const IncomeStep = ({ previousStep, nextStep }: StepProps) => {
           </GridRow>
         </Stack>
 
+        <Box marginTop={5}>
+          <Text variant="h4">Ökutækjastyrkur. Dagpeningar. Hlunnindi</Text>
+        </Box>
+        <GridRow>
+          <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+            <Input
+              name="Dagpeningar"
+              size="xs"
+              label="Dagpeningar"
+              value="120.000"
+              disabled
+            />
+          </GridColumn>
+        </GridRow>
+
+        <Box marginTop={5}>
+          <Text variant="h4">
+            Lífeyrisgreiðslur. Greiðslur frá Tryggingastofnun. Aðrar
+            bótagreiðslur, styrkir o.fl.
+          </Text>
+        </Box>
+        <Stack space={6}>
+          <GridRow rowGap={1}>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="1"
+                size="xs"
+                label=" "
+                value={'Norðurljós Software ehf.'}
+                disabled
+              />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/2', '1/1', '1/1', '1/2']}>
+              <Input
+                name="2"
+                size="xs"
+                label=" "
+                value="Íþróttastyrkur"
+                disabled
+              />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="launatekjur"
+                size="xs"
+                label=" "
+                value="75.000"
+                disabled
+              />
+            </GridColumn>
+          </GridRow>
+          <GridRow rowGap={1}>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="fastanumer-eignar"
+                size="xs"
+                label=" "
+                value={'VR'}
+                disabled
+              />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/2', '1/1', '1/1', '1/2']}>
+              <Input
+                name="nafn-launagreidanda"
+                size="xs"
+                label=" "
+                value="Starfsmenntastyrkur"
+                disabled
+              />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="launatekjur"
+                size="xs"
+                label=" "
+                value="130.000"
+                disabled
+              />
+            </GridColumn>
+          </GridRow>
+        </Stack>
+
         <Box
           marginTop={8}
           display="flex"

@@ -18,7 +18,7 @@ export const AssetStep = ({ previousStep, nextStep }: StepProps) => {
           árslok 2024 eru áritaðar á framtalið.
         </Text>
         <Text variant="h4">Innlendar fasteignir samkvæmt fasteignamati.</Text>
-        <Stack space={8}>
+        <Stack space={6}>
           <GridRow rowGap={2}>
             <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
               <Input
@@ -57,6 +57,78 @@ export const AssetStep = ({ previousStep, nextStep }: StepProps) => {
                 size="xs"
                 label="Samtals "
                 value="52.000.000"
+                disabled
+              />
+            </GridColumn>
+          </GridRow>
+        </Stack>
+
+        <Box paddingTop={3}>
+          <Text variant="h4">Bifreiðir</Text>
+        </Box>
+
+        <Stack space={6}>
+          <GridRow rowGap={2}>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="1"
+                size="xs"
+                label="Númer"
+                value={'KB-521'}
+                disabled
+              />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/2', '1/1', '1/1', '1/2']}>
+              <Input name="2" size="xs" label="Kaupár" value="2021" disabled />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="kaupverd-1"
+                size="xs"
+                label="Kaupverð"
+                value="3.100.000"
+                disabled
+              />
+            </GridColumn>
+          </GridRow>
+          <GridRow rowGap={2}>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="fastanumer-eignar"
+                size="xs"
+                label="Númer"
+                value={'JU-329'}
+                disabled
+              />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/2', '1/1', '1/1', '1/2']}>
+              <Input
+                name="nafn-launagreidanda"
+                size="xs"
+                label="Kaupár"
+                value="2012"
+                disabled
+              />
+            </GridColumn>
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="launatekjur"
+                size="xs"
+                label="Kaupverð"
+                value="430.000"
+                disabled
+              />
+            </GridColumn>
+          </GridRow>
+
+          <GridRow>
+            <GridColumn span={['1/1', '3/4', '1/1', '1/1', '3/4']} />
+            <GridColumn span={['1/1', '1/4', '1/1', '1/1', '1/4']}>
+              <Input
+                name="samtals"
+                size="xs"
+                label="Samtals "
+                value="3.530.000"
                 disabled
               />
             </GridColumn>

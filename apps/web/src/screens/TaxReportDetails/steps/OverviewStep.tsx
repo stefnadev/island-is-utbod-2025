@@ -17,9 +17,7 @@ export const OverviewStep = ({ previousStep, nextStep }: StepProps) => {
         <Button preTextIcon="arrowBack" variant="ghost" onClick={previousStep}>
           Til baka
         </Button>
-        <Button icon="arrowForward" onClick={nextStep}>
-          Staðfesta
-        </Button>
+        <Button onClick={nextStep}>Skila framtali</Button>
       </Box>
     </Box>
   );

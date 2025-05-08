@@ -9,9 +9,8 @@ export const GagnasofnunStep = ({
 }: StepProps) => (
   <>
     <Box marginY={4}>
-      <Text marginY={2} variant="h3">
-        Eftirfarandi gögn um þig verða sótt rafrænt til að einfalda
-        umsóknarferlið.
+      <Text marginY={2} variant="h4">
+        Eftirfarandi gögn verða sótt rafrænt með þínu samþykki.
       </Text>
       <Box paddingY={2}>
         <Stack space={3}>
