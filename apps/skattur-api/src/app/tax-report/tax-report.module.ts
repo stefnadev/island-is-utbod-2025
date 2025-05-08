@@ -4,7 +4,7 @@ import { TaxReportService } from './tax-report.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { TaxReport } from './db/models/tax-report.model';
 import { TaxReportSequilizeModule } from './db/tax-report.sequelize.module';
-import { TaxReportRepository } from './db/repositories/tax-report-repository';
+import { TaxReportRepository } from './db/repositories/tax-report.repository';
 import { IncomesMockService } from './mock/incomes.mock.service';
 import { AssetMockService } from './mock/assets.mock.service';
 import { DebtsMockService } from './mock/debts.mock.service';
